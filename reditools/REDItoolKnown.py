@@ -629,7 +629,7 @@ def exploreBAM(myinput):
 					else: sequp=(fasta.fetch(chr,((pileupcolumn.pos+1)-homo)-1,(pileupcolumn.pos+1)-1)).upper()
 					seqdw=(fasta.fetch(chr,pileupcolumn.pos+1,(pileupcolumn.pos+1)+homo)).upper()
 				for pileupread in pileupcolumn.pileups: # per ogni base dell'allineamento multiplo
-					s,q,t,qq=pileupread.alignment.seq[pileupread.qpos].upper(),ord(pileupread.alignment.qual[pileupread.qpos])-QVAL,'*',pileupread.alignment.qual[pileupread.qpos]
+					s,q,t,qq=pileupread.alignment.seq[pileupread.query_position].upper(),ord(pileupread.alignment.qual[pileupread.query_position])-QVAL,'*',pileupread.alignment.qual[pileupread.query_position]
 					# escludi posizioni introniche nei pressi di splice sites
 					if exss and di.has_key(pileupcolumn.pos+1): continue
 					# multiple hit
@@ -676,11 +676,11 @@ def exploreBAM(myinput):
 									else: t='-'	
 						if rmnuc:
 							#rlen=pileupread.alignment.rlen #pileupread.alignment.qlen #lunghezza della specifica read
-							#print rlen,pileupread.qpos,pileupread.alignment.qstart,pileupread.alignment.qend
+							#print rlen,pileupread.query_position,pileupread.alignment.qstart,pileupread.alignment.qend
 							# verifica se il nuc deve essere rimosso alle estremita' nel range x-y
 							# testare il forward
-							#qp=pileupread.qpos #pileupread.qpos-pileupread.alignment.qstart
-							#print pileupread.qpos,pileupread.alignment.rlen,len(pileupread.alignment.seq)
+							#qp=pileupread.query_position #pileupread.query_position-pileupread.alignment.qstart
+							#print pileupread.query_position,pileupread.alignment.rlen,len(pileupread.alignment.seq)
 							#if pileupread.alignment.is_reverse:
 							#	if (rlen-qp)-1 < rmp[0]:continue
 							#	if (rlen-qp)-1 > ((rlen)-rmp[1])-1: continue
@@ -688,7 +688,7 @@ def exploreBAM(myinput):
 							#	if qp<rmp[0]:continue
 							#	if qp>(rlen-rmp[1])-1: continue
 							rlen=pileupread.alignment.rlen #pileupread.alignment.qlen #lunghezza della specifica read
-							qp=pileupread.qpos #pileupread.qpos-pileupread.alignment.qstart
+							qp=pileupread.query_position #pileupread.query_position-pileupread.alignment.qstart
 							if pileupread.alignment.is_reverse:
 								if qp>(rlen-rmp[0])-1: continue
 								if qp<rmp[1]:continue

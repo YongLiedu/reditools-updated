@@ -874,7 +874,7 @@ def exploreBAM(myinput):
 					else: sequp=(fasta.fetch(chr,((pileupcolumn.pos+1)-ghomo)-1,(pileupcolumn.pos+1)-1)).upper()
 					seqdw=(fasta.fetch(chr,pileupcolumn.pos+1,(pileupcolumn.pos+1)+ghomo)).upper()
 				for pileupread in pileupcolumn.pileups: # per ogni base dell'allineamento multiplo
-					gs,gq,gt,gqq=pileupread.alignment.seq[pileupread.qpos].upper(),ord(pileupread.alignment.qual[pileupread.qpos])-gQVAL,'*',pileupread.alignment.qual[pileupread.qpos]
+					gs,gq,gt,gqq=pileupread.alignment.seq[pileupread.query_position].upper(),ord(pileupread.alignment.qual[pileupread.query_position])-gQVAL,'*',pileupread.alignment.qual[pileupread.query_position]
 					# multiple hits
 					if gexh and pileupread.alignment.is_secondary: continue
 					# duplicates
@@ -894,10 +894,10 @@ def exploreBAM(myinput):
 					if gq >= gMQUAL and pileupcolumn.pos in pileupread.alignment.positions:	
 						if grmnuc:
 							#grlen=pileupread.alignment.qlen #lunghezza della specifica read
-							#print rlen,pileupread.qpos,pileupread.alignment.qstart,pileupread.alignment.qend
+							#print rlen,pileupread.query_position,pileupread.alignment.qstart,pileupread.alignment.qend
 							# verifica se il nuc deve essere rimosso alle estremita' nel range x-y
 							# testare il forward
-							#gqp=pileupread.qpos-pileupread.alignment.qstart
+							#gqp=pileupread.query_position-pileupread.alignment.qstart
 							#print qp,pileupread.alignment.is_reverse
 							#print (rlen-qp)-1
 							#if pileupread.alignment.is_reverse:
@@ -907,7 +907,7 @@ def exploreBAM(myinput):
 							#	if gqp<grmp[0]:continue
 							#	if gqp>(grlen-grmp[1])-1: continue
 							grlen=pileupread.alignment.rlen #pileupread.alignment.qlen #lunghezza della specifica read
-							gqp=pileupread.qpos #pileupread.qpos-pileupread.alignment.qstart
+							gqp=pileupread.query_position #pileupread.query_position-pileupread.alignment.qstart
 							if pileupread.alignment.is_reverse:
 								if gqp>(grlen-grmp[0])-1: continue
 								if gqp<grmp[1]:continue
@@ -959,7 +959,7 @@ def exploreBAM(myinput):
 				else: sequp=(fasta.fetch(chr,((pileupcolumn.pos+1)-homo)-1,(pileupcolumn.pos+1)-1)).upper()
 				seqdw=(fasta.fetch(chr,pileupcolumn.pos+1,(pileupcolumn.pos+1)+homo)).upper()
 			for pileupread in pileupcolumn.pileups: # per ogni base dell'allineamento multiplo
-				s,q,t,qq=pileupread.alignment.seq[pileupread.qpos].upper(),ord(pileupread.alignment.qual[pileupread.qpos])-QVAL,'*',pileupread.alignment.qual[pileupread.qpos]
+				s,q,t,qq=pileupread.alignment.seq[pileupread.query_position].upper(),ord(pileupread.alignment.qual[pileupread.query_position])-QVAL,'*',pileupread.alignment.qual[pileupread.query_position]
 				# escludi posizioni introniche nei pressi di splice sites
 				if exss and di.has_key(pileupcolumn.pos+1): continue
 				# multiple hit
@@ -1009,11 +1009,11 @@ def exploreBAM(myinput):
 						#print pileupread.alignment.qname
 						#print pileupread.alignment
 						#rlen=pileupread.alignment.qlen #lunghezza della specifica read
-						#print rlen,pileupread.qpos,pileupread.alignment.qstart,pileupread.alignment.qend
+						#print rlen,pileupread.query_position,pileupread.alignment.qstart,pileupread.alignment.qend
 						# verifica se il nuc deve essere rimosso alle estremita' nel range x-y
 						# testare il forward
-						#qp=pileupread.qpos-pileupread.alignment.qstart
-						#print pileupread.qpos,pileupread.alignment.rlen
+						#qp=pileupread.query_position-pileupread.alignment.qstart
+						#print pileupread.query_position,pileupread.alignment.rlen
 						#print (rlen-qp)-1
 						#if pileupread.alignment.is_reverse:
 						#	if (rlen-qp)-1 < rmp[0]:continue
@@ -1022,7 +1022,7 @@ def exploreBAM(myinput):
 						#	if qp<rmp[0]:continue
 						#	if qp>(rlen-rmp[1])-1: continue				
 						rlen=pileupread.alignment.rlen #pileupread.alignment.qlen #lunghezza della specifica read
-						qp=pileupread.qpos #pileupread.qpos-pileupread.alignment.qstart
+						qp=pileupread.query_position #pileupread.query_position-pileupread.alignment.qstart
 						if pileupread.alignment.is_reverse:
 							if qp>(rlen-rmp[0])-1: continue
 							if qp<rmp[1]:continue
@@ -1047,7 +1047,7 @@ def exploreBAM(myinput):
 					if greads: # --reads option
 						if ref!=s:
 							rqname=pileupread.alignment.qname
-							addpos=(chr+'_'+str(pileupcolumn.pos+1),pileupread.qpos+1)
+							addpos=(chr+'_'+str(pileupcolumn.pos+1),pileupread.query_position+1)
 							if not grdb.has_key(rqname):
 								#print rqname
 								outreads.write(rqname+'\n')
