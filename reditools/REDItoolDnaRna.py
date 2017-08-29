@@ -662,6 +662,7 @@ if len(gbamfile)==0:
 	nogbam=1
 else:
 	for i in dgbamfile:
+		idxinfo=[l for l in pysam.idxstats(i).split('\n') if l != '']
 		idxinfo=pysam.idxstats(i)
 		for j in idxinfo:
 			l=(j.strip()).split('\t')
@@ -678,7 +679,7 @@ if not os.path.exists(fastafile+'.fai'):
 # Check reference for name consistency
 grefs=dgdic.keys()
 rrefs={}
-ridxinfo=pysam.idxstats(bamfile)
+ridxinfo=[l for l in pysam.idxstats(bamfile).split('\n') if l != '']
 for j in ridxinfo:
 	l=(j.strip()).split('\t')
 	if l[0]=='*': continue
