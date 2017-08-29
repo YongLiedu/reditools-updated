@@ -739,7 +739,7 @@ if custsub:
 #####################
 # check reference names
 rrefs={}
-ridxinfo=pysam.idxstats(bamfile)
+ridxinfo=[l for l in pysam.idxstats(bamfile).split('\n') if l != '']
 for j in ridxinfo:
 	l=(j.strip()).split('\t')
 	if l[0]=='*': continue
