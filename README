@@ -19,3 +19,6 @@ data but don’t have sufficient bioinformatics skills.
 They work on main operating systems (although unix/linux-based OS are preferred), can handle reads from whatever
 platform in the standard BAM format and implement a variety of filters.
 
+About this repo
+===============
+I'm updating reditools to use a more modern version of [pysam](https://github.com/pysam-developers/pysam) (check requirements.txt for the exact version), and so I've got this on git while I'm doing it, too.
