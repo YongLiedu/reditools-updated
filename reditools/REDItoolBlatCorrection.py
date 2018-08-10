@@ -403,6 +403,7 @@ def createFasta(chr,inblat,infoblat,chrbam,fastafile,rgfile):
 		for pileupcolumn in bam.pileup(chr):
 			ref=fasta.fetch(chr,pileupcolumn.pos,pileupcolumn.pos+1).upper()
 			for pileupread in pileupcolumn.pileups:
+				if not isinstance(pileupread.query_position, (int, long)): continue
 				if ord(pileupread.alignment.qual[pileupread.query_position])-QVAL >= MQUAL and pileupcolumn.pos in pileupread.alignment.positions:
 					seq=pileupread.alignment.seq[pileupread.query_position].upper()
 					if ref!=seq: #substitution
