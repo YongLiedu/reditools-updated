@@ -862,6 +862,7 @@ def exploreBAM(myinput):
 			else: sequp=(fasta.fetch(chr,((pileupcolumn.pos+1)-homo)-1,(pileupcolumn.pos+1)-1)).upper()
 			seqdw=(fasta.fetch(chr,pileupcolumn.pos+1,(pileupcolumn.pos+1)+homo)).upper()
 		for pileupread in pileupcolumn.pileups: # per ogni base dell'allineamento multiplo
+			if not isinstance(pileupread.query_position, (int, long)): continue
 			s,q,t,qq=pileupread.alignment.seq[pileupread.query_position].upper(),ord(pileupread.alignment.qual[pileupread.query_position])-QVAL,'*',pileupread.alignment.qual[pileupread.query_position]
 			# escludi posizioni introniche nei pressi di splice sites
 			if exss and di.has_key(pileupcolumn.pos+1): continue
