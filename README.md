@@ -29,4 +29,4 @@ sudo python setup.py install
 ```
 
 ## Usage
-See [documentation](https://github.com/YongLiedu/reditools-updated/blob/master/REDItools_documentation.html) for details.
+See [documentation](https://github.com/YongLiedu/reditools-updated/blob/master/REDItools_documentation.md) for details.
