@@ -1,8 +1,6 @@
-REDItools: python scripts for RNA editing detection by RNA-Seq data
-===================================================================
+# REDItools: python scripts for RNA editing detection by RNA-Seq data
 
-Introduction
-============
+## Introduction
 REDItools are python scripts developed with the aim to study RNA editing at genomic scale
 by next generation sequencing data. RNA editing is a post-transcriptional phenomenon
 involving the insertion/deletion or substitution of specific bases in precise RNA localizations.
@@ -19,6 +17,16 @@ data but don’t have sufficient bioinformatics skills.
 They work on main operating systems (although unix/linux-based OS are preferred), can handle reads from whatever
 platform in the standard BAM format and implement a variety of filters.
 
-About this repo
-===============
-I'm updating reditools to use a more modern version of [pysam](https://github.com/pysam-developers/pysam) (check requirements.txt for the exact version), and so I've got this on git while I'm doing it, too.
+## About this repo
+Updated  REDItools to use a more modern version of [pysam](https://github.com/pysam-developers/pysam) (v0.15.0 is tested).
+
+## Installation
+```bash
+git clone git://github.com/YongLiedu/reditools-updated
+cd reditools-updated
+python setup.py build
+sudo python setup.py install
+```
+
+## Usage
+See [documentation](https://github.com/YongLiedu/reditools-updated/edit/master/REDItools_documentation.html) for details.
