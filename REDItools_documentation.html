@@ -1,0 +1,1794 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>REDItools_documentation</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/yongli/.atom/packages/markdown-preview-enhanced/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <style> 
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+ 
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview   ">
+      <h1 class="mume-header" id="reditools-python-scripts-for-rna-editing-detection-by-rna-seq-data">REDItools: python scripts for RNA editing detection by RNA-Seq data</h1>
+
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#publications">Publications</a></li>
+<li><a href="#download">Download</a>
+<ul>
+<li><a href="#download-reditools">Download REDItools</a></li>
+<li><a href="#download-testing-dataset">Download testing dataset</a></li>
+</ul>
+</li>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#input-files">Input files</a>
+<ul>
+<li><a href="#preparing-input-files">Preparing input files</a>
+<ul>
+<li><a href="#fasta">FASTA</a></li>
+<li><a href="#bam">BAM</a></li>
+<li><a href="#gtf">GTF</a></li>
+<li><a href="#tab">TAB</a></li>
+<li><a href="#splicesites">SpliceSites</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#output-files">Output files</a></li>
+<li><a href="#usage-information">Usage Information</a>
+<ul>
+<li><a href="#reditooldnarnapy">REDItoolDnaRna.py</a></li>
+<li><a href="#reditoolknownpy">REDItoolKnown.py</a></li>
+<li><a href="#reditooldenovopy">REDItoolDenovo.py</a></li>
+</ul>
+</li>
+<li><a href="#additional-scripts">Additional scripts:</a>
+<ul>
+<li><a href="#reditoolblatcorrectionpy">REDItoolBlatCorrection.py</a></li>
+<li><a href="#filtertablepy">FilterTable.py</a></li>
+<li><a href="#annotatetablepy">AnnotateTable.py</a></li>
+<li><a href="#searchintablepy">SearchInTable.py</a></li>
+<li><a href="#selectpositionspy">selectPositions.py</a></li>
+<li><a href="#sorttablepy-new-in-version-103">SortTable.py (new in version 1.0.3)</a></li>
+<li><a href="#tabletotabixpy-new-in-version-103">tableToTabix.py (new in version 1.0.3)</a></li>
+<li><a href="#sortgffpy-new-in-version-103">SortGFF.py (new in version 1.0.3)</a></li>
+<li><a href="#gfftotabixpy-new-in-version-103">GFFtoTabix.py (new in version 1.0.3)</a></li>
+<li><a href="#tabletogffpy-new-in-version-103">TableToGFF.py (new in version 1.0.3)</a></li>
+</ul>
+</li>
+<li><a href="#usage-example">Usage Example</a>
+<ul>
+<li><a href="#test-dataset">Test dataset</a></li>
+</ul>
+</li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<h2 class="mume-header" id="introduction">Introduction</h2>
+
+<p>REDItools are python scripts developed with the aim to study RNA editing at genomic scale by next generation sequencing data. RNA editing is a post-transcriptional phenomenon involving the insertion/deletion or substitution of specific bases in precise RNA localizations.<br>
+In human, RNA editing occurs by deamination of cytosine to uridine (C-to-U) or mostly by the adenosine to inosine (A-to-I) conversion through ADAR enzymes. A-to-I substitutions may have profound functional consequences and have been linked to a variety of human diseases including neurological and neurodegenerative disorders or cancer. Next generation sequencing technologies offer the unique opportunity to investigate in depth RNA editing even though no dedicated software has been released up to now.</p>
+<p>REDItools are simple python scripts conceived to facilitate the investigation of RNA editing at large-scale and devoted to research groups that would to explore such phenomenon in own data but don’t have sufficient bioinformatics skills.<br>
+They work on main operating systems (although unix/linux-based OS are preferred), can handle reads from whatever platform in the standard BAM format and implement a variety of filters.</p>
+<h2 class="mume-header" id="publications">Publications</h2>
+
+<ul>
+<li>
+<p><em>Picardi E, D'Erchia AM, Gallo A and Pesole G</em> <strong>Detection of post-transcriptional RNA editing events.</strong> <em>Methods Mol Biol. 2015;1269:189-205</em> PubMed PMID: <a href="http://www.ncbi.nlm.nih.gov/pubmed/25577380">25577380</a></p>
+</li>
+<li>
+<p><em>Picardi E, D'Erchia AM, Gallo A, Montalvo A and Pesole G.</em> <strong>Uncovering RNA Editing Sites in Long Non-Coding RNAs.</strong> <em>Front Bioeng Biotechnol. 2014 Dec 5;2:64</em> PubMed PMID: <a href="http://www.ncbi.nlm.nih.gov/pubmed/25538940">25538940</a></p>
+</li>
+<li>
+<p><em>Picardi E and Pesole G.</em> <strong>REDItools: high-throughput RNA editing detection made easy.</strong> <em>Bioinformatics. 2013 Jul 15;29(14):1813-4</em> PubMed PMID: <a href="http://www.ncbi.nlm.nih.gov/pubmed/23742983">23742983</a></p>
+</li>
+</ul>
+<h2 class="mume-header" id="download">Download</h2>
+
+<h3 class="mume-header" id="download-reditools">Download REDItools</h3>
+
+<ul>
+<li><a href="http://sourceforge.net/projects/reditools/files/REDItools-1.0.4.tar.gz/download">REDItools v1.0.4</a></li>
+<li><a href="http://sourceforge.net/projects/reditools/files/REDItools-1.0.3.tar.gz/download">REDItools v1.0.3</a></li>
+<li><a href="http://sourceforge.net/projects/reditools/files/REDItools-1.0.2.tar.gz/download">REDItools v1.0.2</a></li>
+</ul>
+<h3 class="mume-header" id="download-testing-dataset">Download testing dataset</h3>
+
+<ul>
+<li><a href="http://srv00.ibbe.cnr.it/reditools/data/testREDItools.tar.gz">testREDItools.tar.gz</a></li>
+</ul>
+<h2 class="mume-header" id="prerequisites">Prerequisites</h2>
+
+<p>REDItools require python 2.6 or 2.7 available at <a href="http://www.python.org">python web-site</a>.<br>
+All scripts have not been tested on python 3.<br>
+In addition, two external modules need to be installed to run and use REDItools, even though the second module is optional:</p>
+<ul>
+<li>pysam module version 0.6 or 0.7 available on <a href="http://code.google.com/p/pysam/">Google Code</a></li>
+<li>fisher module version 0.1.4 (optional) available at <a href="http://pypi.python.org/pypi/fisher/">python web site</a></li>
+</ul>
+<p>To perform Blat correction and format alignment exchange (SAM to BAM and vice versa) the<br>
+following packages should be installed or already present in your path:</p>
+<ul>
+<li>Blat package including gfServer and gfClient executables, available from <a href="http://hgdownload.cse.ucsc.edu/admin/exe/">UCSC Genome Browser</a></li>
+<li>Samtools and tabix from <a href="http://samtools.sourceforge.net/">sourceforge</a></li>
+</ul>
+<h2 class="mume-header" id="installation">Installation</h2>
+
+<p>REDItools require pysam module. To check its presence in your system try the<br>
+command:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> python -c <span class="token string">'import pysam'</span>
+</pre><p>If no errors are raised, the module is already installed. Alternatively, download a copy<br>
+from the above link and follow instructions inside.</p>
+<p>REDItools are stand-alone scripts and each one can be simply launched by:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> python REDItoolscript.py
+</pre><p>Alternatively you can easily install REDItools by the following commands:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> gunzip reditools-1.0.2.tar.gz
+ <span class="token function">tar</span> –xvf reditools-1.0.2.tar
+ <span class="token function">cd</span> reditools-1.0.2
+ python setup.py <span class="token function">install</span>
+</pre><p>To install scripts in a specific location the --prefix option can be used:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> python setup.py <span class="token function">install</span> --prefix<span class="token operator">=</span>/my/path
+</pre><p>All scripts will be located in /my/path/bin.</p>
+<h2 class="mume-header" id="input-files">Input files</h2>
+
+<p>REDItools have been designed to handle mapped reads from next generation sequencing<br>
+technologies in the standard BAM format.<br>
+The following input files are accepted:</p>
+<ul>
+<li>BAM files containing RNA-Seq or DNA-Seq reads aligned onto a reference genome (mandatory);</li>
+<li>FASTA file of reference genome (mandatory);</li>
+<li>GTF file containing specific genomic positions (optional);</li>
+<li>TAB file containing individual genomic positions (optional);</li>
+<li>SpliceSites file containing splice sites information (optional).</li>
+</ul>
+<h3 class="mume-header" id="preparing-input-files">Preparing input files</h3>
+
+<h4 class="mume-header" id="fasta">FASTA</h4>
+
+<p>Reference genome in fasta format needs to be indexed using samtools:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> samtools faidx reference.fa
+</pre><h4 class="mume-header" id="bam">BAM</h4>
+
+<p>Starting from alignments in SAM format, you first need to convert SAM to BAM:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> samtools view –bS –T reference.fa myfile.sam <span class="token operator">></span> myfile.bam
+</pre><p>then sort your BAM:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> samtools <span class="token function">sort</span> myfile.bam myfile.sorted
+</pre><p>and finally index your sorted BAM:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> samtools index myfile.sorted.bam
+</pre><h4 class="mume-header" id="gtf">GTF</h4>
+
+<p>GTF files for specific annotations and genomic regions can be downloaded from <a href="http://genome.ucsc.edu/">UCSC</a>.<br>
+Alternatively, UCSC tables in psl format may be used and converted in GTF by the following awk/gawk commands:</p>
+<ul>
+<li>For RepeakMask table:</li>
+</ul>
+<pre data-role="codeBlock" data-info="bash" class="language-bash">  $ gunzip rmsk.txt.gz
+  $ <span class="token function">gawk</span> <span class="token string">'OFS="\t"{print <span class="token variable">$6</span>,"rmsk_hg19",<span class="token variable">$12</span>,<span class="token variable">$7</span>+1,<span class="token variable">$8</span>,".",<span class="token variable">$10</span>,".","gene_id \""<span class="token variable">$11</span>"\"; transcript_id \""<span class="token variable">$13</span>"\";"}'</span> rmsk.txt <span class="token operator">></span> rmsk.gtf
+</pre><ul>
+<li>For simpleRepeat table:</li>
+</ul>
+<pre data-role="codeBlock" data-info="bash" class="language-bash">  $ gunzip simpleRepeat.txt.gz
+  $ <span class="token function">gawk</span> <span class="token string">'OFS="\t"{print <span class="token variable">$2</span>,"trf_hg19","trf",<span class="token variable">$3</span>+1,<span class="token variable">$4</span>,".","+",".","gene_id \""<span class="token variable">$5</span>"\"; transcript_id \""<span class="token variable">$17</span>"\";"}'</span> simpleRepeat.txt <span class="token operator">></span> simpleRepeat.gtf
+</pre><ul>
+<li>For RefSeq annotations you can download from UCSC and use the <a href="http://hgdownload.soe.ucsc.edu/admin/exe/">genePredToGtf</a> utility:</li>
+</ul>
+<pre data-role="codeBlock" data-info="bash" class="language-bash">  $ gunzip refGene.txt.gz
+  $ <span class="token function">cut</span> -f 2- refGene.txt <span class="token operator">|</span> genePredToGtf -utr -source<span class="token operator">=</span>hg19_refseq <span class="token function">file</span> stdin refGene.gtf
+</pre><p>Other annotations can be generated accordingly. Please, consider that the GTF format includes 9 Tab-delimited fields:</p>
+<ul>
+<li>chromosome/region name</li>
+<li>source (for example hg19_refseq)</li>
+<li>feature (for example CDS, exon, snp ...)</li>
+<li>start coordinate (1-based)</li>
+<li>end coordinate (1-based)</li>
+<li>score (use a dot if unknown)</li>
+<li>strand (+ or - use + if unknown)</li>
+<li>frame for CDS only or a dot (a dot also if unknown)</li>
+<li>attributes. For REDItools there are two mandatory attributes: gene_id and transcript_id</li>
+</ul>
+<p>Following lines show a GTF example for RefSeq annotations:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> $ <span class="token function">head</span> -n6 refGene.gtf
+ chr7    hg19_refseq     5UTR    139025878       139026130       <span class="token keyword">.</span>       +       <span class="token keyword">.</span>       gene_id <span class="token string">"C7orf55"</span><span class="token punctuation">;</span> transcript_id <span class="token string">"NM_197964"</span><span class="token punctuation">;</span>
+ chr7    hg19_refseq     CDS     139026131       139026268       <span class="token keyword">.</span>       +       0       gene_id <span class="token string">"C7orf55"</span><span class="token punctuation">;</span> transcript_id <span class="token string">"NM_197964"</span><span class="token punctuation">;</span>
+ chr7    hg19_refseq     CDS     139030247       139030447       <span class="token keyword">.</span>       +       0       gene_id <span class="token string">"C7orf55"</span><span class="token punctuation">;</span> transcript_id <span class="token string">"NM_197964"</span><span class="token punctuation">;</span>
+ chr7    hg19_refseq     3UTR    139030451       139031065       <span class="token keyword">.</span>       +       <span class="token keyword">.</span>       gene_id <span class="token string">"C7orf55"</span><span class="token punctuation">;</span> transcript_id <span class="token string">"NM_197964"</span><span class="token punctuation">;</span>
+ chr7    hg19_refseq     start_codon     139026131       139026133       <span class="token keyword">.</span>       +       0       gene_id <span class="token string">"C7orf55"</span><span class="token punctuation">;</span> transcript_id <span class="token string">"NM_197964"</span><span class="token punctuation">;</span>
+ chr7    hg19_refseq     stop_codon      139030448       139030450       <span class="token keyword">.</span>       +       0       gene_id <span class="token string">"C7orf55"</span><span class="token punctuation">;</span> transcript_id <span class="token string">"NM_197964"</span><span class="token punctuation">;</span>
+</pre><p>GTF files can be sorted by the command:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> $ <span class="token function">sort</span> -k1,1 -k4,4n mygft <span class="token operator">></span> mygtf_sorted
+</pre><h4 class="mume-header" id="tab">TAB</h4>
+
+<p>TAB files are simple textual files with at least three tabulated columns including:</p>
+<ul>
+<li>genomic region (generally the chromosome name according to the reference genome)</li>
+<li>coordinate of the position (1-based)</li>
+<li>strand (+ or -). You can also indicate strand by 0 (strand -), 1 (strand +) or 2 (+ and - or unknown)</li>
+</ul>
+<p>==============  ==========  ======<br>
+genomic region  coordinate  strand<br>
+==============  ==========  ======<br>
+chr21           10205589    -<br>
+chr21           10205629    -<br>
+chr21           15411496    +<br>
+chr21           15412990    +<br>
+chr21           15414553    +<br>
+chr21           15415901    +<br>
+chr21           15417667    +<br>
+chr21           15423330    +<br>
+==============  ==========  ======</p>
+<p>TAB files must be coordinate sorted. In unix/linux environment they can be sorted by the sort command:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> <span class="token function">sort</span> -k1,1 -k2,2n mytable.txt <span class="token operator">></span> mytable.sorted.txt
+</pre><h4 class="mume-header" id="splicesites">SpliceSites</h4>
+
+<p>SpliceSites files are simple textual file including 5 columns separated by space:</p>
+<ul>
+<li>genomic region (chromosome/region name according to reference and input BAMs)</li>
+<li>start coordinate of splice site (1-based)</li>
+<li>end coordinate of splice site (1-based)</li>
+<li>splice site type, A for acceptor and D for donor</li>
+<li>strand (+ or -)</li>
+</ul>
+<p>==============  ==========  =====   ====  ======<br>
+genomic region  start       end     type  strand<br>
+==============  ==========  =====   ====  ======<br>
+chr1            13224       13225   A     +<br>
+chr1            12227       12228   D     +<br>
+chr1            12594       12595   A     +<br>
+chr1            12721       12722   D     +<br>
+chr1            13402       13403   A     +<br>
+chr1            13655       13656   D     +<br>
+chr1            29320       29321   D     -<br>
+chr1            24891       24892   A     -<br>
+chr1            24737       24738   D     -<br>
+chr1            18379       18380   A     -<br>
+==============  ==========  =====   ====  ======</p>
+<p>SpliceSites files can be obtained starting from UCSC annotations in psl format and using<br>
+the perl script psl_splicesites included in the <a href="http://research-pub.gene.com/gmap/">GMAP/GSNAP</a> package:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> gunzip -c refGene.txt.gz <span class="token operator">|</span> psl_splicesites -s 1 <span class="token operator">></span> mysplicesites
+</pre><p>The format of mysplicesites is:</p>
+<blockquote>
+<p>NM_005236.exon11/11 chr16:14041470..14041471 acceptor 2778<br>
+NM_005235.exon1/28 chr2:213403173..213403172 donor 413544<br>
+NM_005235.exon2/28 chr2:212989629..212989628 acceptor 413544<br>
+NM_005235.exon2/28 chr2:212989477..212989476 donor 177135<br>
+NM_005235.exon3/28 chr2:212812342..212812341 acceptor 177135<br>
+NM_005235.exon3/28 chr2:212812155..212812154 donor 159270<br>
+NM_005235.exon4/28 chr2:212652885..212652884 acceptor 159270<br>
+NM_005235.exon4/28 chr2:212652750..212652749 donor 37320<br>
+NM_005235.exon5/28 chr2:212615430..212615429 acceptor 37320</p>
+</blockquote>
+<p>Then, the following awk/gawk command line can be used to get the final SpliceSite file:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash">	$ <span class="token function">gawk</span> -F<span class="token string">" "</span> <span class="token string">'{split(<span class="token variable">$2</span>,a,":"); split(a[2],b,"."); if (b[1]>b[3]) print a[1],b[3],b[1],toupper(substr(<span class="token variable">$3</span>,1,1)),"-"; else print a[1],b[1],b[3],toupper(substr(<span class="token variable">$3</span>,1,1)),"+"}'</span> mysplicesites <span class="token operator">></span> mysplicesites.ss
+	$ <span class="token function">more</span> mysplicesites.ss
+	chr16 14041470 14041471 A +
+	chr2 213403172 213403173 D -
+	chr2 212989628 212989629 A -
+	chr2 212989476 212989477 D -
+	chr2 212812341 212812342 A -
+	chr2 212812154 212812155 D -
+	chr2 212652884 212652885 A -
+	chr2 212652749 212652750 D -
+	chr2 212615429 212615430 A -
+</pre><h2 class="mume-header" id="output-files">Output files</h2>
+
+<p>REDItools print out results in simple textual tables:</p>
+<p>======  ========  =========  ======  ============  =====  ==================  =======  =========<br>
+Region  Position  Reference  Strand  Coverage-q25  MeanQ  BaseCount[A,C,G,T]  AllSubs  Frequency<br>
+======  ========  =========  ======  ============  =====  ==================  =======  =========<br>
+chr21   15412990  A          1       18            37.22   [3, 0, 15, 0]      AG       0.83<br>
+chr21   15415901  A          1       13            37.15   [2, 0, 11, 0]      AG       0.85<br>
+chr21   15423330  A          1       11            38.27   [4, 0, 7, 0]       AG       0.64<br>
+chr21   15425640  A          1       8             36.12   [0, 0, 8, 0]       AG       1.00<br>
+chr21   15456434  T          1       90            34.96   [0, 6, 1, 83]      TC TG    0.07<br>
+chr21   15461406  A          1       83            37.27   [73, 0, 10, 0]     AG       0.12<br>
+chr21   15461417  A          1       90            36.26   [72, 0, 18, 0]     AG       0.20<br>
+chr21   15461444  A          1       64            37.22   [26, 0, 38, 0]     AG       0.59<br>
+chr21   15461479  A          1       70            36.96   [66, 0, 4, 0]      AG       0.06<br>
+chr21   15461486  A          1       68            37.06   [61, 0, 7, 0]      AG       0.10<br>
+chr21   15461503  A          1       76            37.26   [69, 0, 7, 0]      AG       0.09<br>
+chr21   15461511  A          1       81            37.68   [55, 0, 26, 0]     AG       0.32<br>
+======  ========  =========  ======  ============  =====  ==================  =======  =========</p>
+<p>where:</p>
+<ul>
+<li>Region: is the genomic region according to reference</li>
+<li>Position: is the exact genomic coordinate (1-based)</li>
+<li>Reference: is the nucleotide base in reference genome</li>
+<li>Strand: is strand information with notation 1 for + strand, 0 for - strand and 2 for unknown or not defined strand</li>
+<li>Coverage-qxx: is the depth per site at a given xx quality score (min. value)</li>
+<li>MeanQ: is the mean quality score per site</li>
+<li>BaseCount[A,C,G,T]: is the base distribution per site in the order A, C, G and T</li>
+<li>AllSubs: is the list of observed substitutions at a given site, separated by a space. A character &quot;-&quot; is included in case of invariant sites.</li>
+<li>Frequency: is the observed frequency of substitution. In case of multiple substitutions, it refers to the first in the AllSubs field.<br>
+In the table above, for example, at line 5 the frequency 0.07 is linked to TC substitution and not to TG that will be always lower than this value.</li>
+</ul>
+<p><a href="http://REDItoolDnaRna.py">REDItoolDnaRna.py</a> includes five additional columns to take into account information from DNA-Seq reads. Such columns are indicated as:</p>
+<ul>
+<li>gCoverage-q25: is the depth per site at a given xx quality score (min. value) in DNA-Seq</li>
+<li>gMeanQ: is the mean quality score per site in DNA-Seq</li>
+<li>gBaseCount[A,C,G,T]: is the base distribution per site in the order A, C, G and T</li>
+<li>gAllSubs: is the list of observed substitutions at a given site, separated by a space. A character &quot;-&quot; is included in case of invariant sites.</li>
+<li>gFrequency: is the observed frequency of substitution. In case of multiple substitutions, it refers to the first in the gAllSubs field.</li>
+</ul>
+<p>In case of positions not supported by DNA-Seq reads, a character &quot;-&quot; will be added to each extra column.</p>
+<p><a href="http://REDItoolDenovo.py">REDItoolDenovo.py</a> includes one additional column concerning the reliability of editing prediction.</p>
+<ul>
+<li>Pvalue: is the pvalue per site calculated according to Fisher exact test. It indicates how much the observed base distribution for a change is different from the expected,<br>
+calculated by the empirical base substitution for the entire RNA-Seq experiment.</li>
+</ul>
+<p><strong>Note</strong> that BaseCount and Reference column are modified according to Strand column. In case of Strand value of 2, the genomic Reference is used.</p>
+<h2 class="mume-header" id="usage-information">Usage Information</h2>
+
+<h3 class="mume-header" id="reditooldnarnapy"><a href="http://REDItoolDnaRna.py">REDItoolDnaRna.py</a></h3>
+
+<p><a href="http://REDItoolDnaRna.py">REDItoolDnaRna.py</a> is the main script devoted to the identification of RNA editing events<br>
+taking into account the combined information from RNA-Seq and DNA-Seq data in BAM format.<br>
+To look at potential RNA editing candidates, RNA-Seq data alone can be used.</p>
+<p>Options:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">option</th>
+<th style="text-align:left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-i</td>
+<td style="text-align:left">RNA-Seq BAM file</td>
+</tr>
+<tr>
+<td style="text-align:center">-j</td>
+<td style="text-align:left">DNA-Seq BAM files separated by comma or folder containing BAM files. <strong>Note</strong> that each chromosome/region must be present in a single BAM file only.</td>
+</tr>
+<tr>
+<td style="text-align:center">-I</td>
+<td style="text-align:left">Sort input RNA-Seq BAM file</td>
+</tr>
+<tr>
+<td style="text-align:center">-J</td>
+<td style="text-align:left">Sort input DNA-Seq BAM file</td>
+</tr>
+<tr>
+<td style="text-align:center">-f</td>
+<td style="text-align:left">Reference file in fasta format. <strong>Note</strong> that chromosome/region names in the reference must match chromosome/region names in BAMs files.</td>
+</tr>
+<tr>
+<td style="text-align:center">-C</td>
+<td style="text-align:left">Base interval to explore [100000]. It indicates how many bases have to be loaded during the run.</td>
+</tr>
+<tr>
+<td style="text-align:center">-k</td>
+<td style="text-align:left">List of chromosomes to skip separated by comma or file (each line must contain a chromosome/region name).</td>
+</tr>
+<tr>
+<td style="text-align:center">-t</td>
+<td style="text-align:left">Number of threads [1]. It indicates how many processes should be launched. Each process will work on an individual chromosome/region.</td>
+</tr>
+<tr>
+<td style="text-align:center">-o</td>
+<td style="text-align:left">Output folder [rediFolder_XXXX] in which all results will be stored. XXXX is a random number generated at each run.</td>
+</tr>
+<tr>
+<td style="text-align:center">-F</td>
+<td style="text-align:left">Internal folder name [null] is the main folder containing output tables.</td>
+</tr>
+<tr>
+<td style="text-align:center">-M</td>
+<td style="text-align:left">Save a list of columns with quality scores. It produces at most two files in the pileup-like format.</td>
+</tr>
+<tr>
+<td style="text-align:center">-c</td>
+<td style="text-align:left">Minimum read coverage (dna,rna) [10,10]</td>
+</tr>
+<tr>
+<td style="text-align:center">-Q</td>
+<td style="text-align:left">Fastq offset value (dna,rna) [33,33]. For Illumina fastq 1.3+ 64 should be used.</td>
+</tr>
+<tr>
+<td style="text-align:center">-q</td>
+<td style="text-align:left">Minimum quality score (dna,rna) [25,25]</td>
+</tr>
+<tr>
+<td style="text-align:center">-m</td>
+<td style="text-align:left">Minimum mapping quality score (dna,rna) [25,25]</td>
+</tr>
+<tr>
+<td style="text-align:center">-O</td>
+<td style="text-align:left">Minimum homoplymeric length (dna,rna) [5,5]</td>
+</tr>
+<tr>
+<td style="text-align:center">-s</td>
+<td style="text-align:left">Infer strand (for strand oriented reads) [1]. It indicates which read is in line with RNA. Available values are: 1:read1 as RNA,read2 not as RNA; 2:read1 not as RNA,read2 as RNA; 12:read1 as RNA,read2 as RNA; 0:read1 not as RNA,read2 not as RNA.</td>
+</tr>
+<tr>
+<td style="text-align:center">-g</td>
+<td style="text-align:left">Strand inference type 1:maxValue 2:useConfidence [1]; maxValue: the most prominent strand count will be used; useConfidence: strand is assigned if over a prefixed frequency confidence (-x option)</td>
+</tr>
+<tr>
+<td style="text-align:center">-x</td>
+<td style="text-align:left">Strand confidence [0.70]</td>
+</tr>
+<tr>
+<td style="text-align:center">-S</td>
+<td style="text-align:left">Strand correction. Once the strand has been inferred, only bases according to this strand will be selected.</td>
+</tr>
+<tr>
+<td style="text-align:center">-G</td>
+<td style="text-align:left">Infer strand by GFF annotation (must be GFF and sorted, otherwise use -X). Sorting requires grep and sort unix executables.</td>
+</tr>
+<tr>
+<td style="text-align:center">-K</td>
+<td style="text-align:left">GFF File with positions to exclude (must be GFF and sorted, otherwise use -X). Sorting requires grep and sort unix executables.</td>
+</tr>
+<tr>
+<td style="text-align:center">-T</td>
+<td style="text-align:left">Work only on given GFF positions (must be GFF and sorted, otherwise use -X). Sorting requires grep and sort unix executables.</td>
+</tr>
+<tr>
+<td style="text-align:center">-X</td>
+<td style="text-align:left">Sort annotation files. It requires grep and sort unix executables.</td>
+</tr>
+<tr>
+<td style="text-align:center">-e</td>
+<td style="text-align:left">Exclude multi hits in RNA-Seq</td>
+</tr>
+<tr>
+<td style="text-align:center">-E</td>
+<td style="text-align:left">Exclude multi hits in DNA-Seq</td>
+</tr>
+<tr>
+<td style="text-align:center">-d</td>
+<td style="text-align:left">Exclude duplicates in RNA-Seq</td>
+</tr>
+<tr>
+<td style="text-align:center">-D</td>
+<td style="text-align:left">Exclude duplicates in DNA-Seq</td>
+</tr>
+<tr>
+<td style="text-align:center">-p</td>
+<td style="text-align:left">Use paired concardant reads only in RNA-Seq</td>
+</tr>
+<tr>
+<td style="text-align:center">-P</td>
+<td style="text-align:left">Use paired concardant reads only in DNA-Seq</td>
+</tr>
+<tr>
+<td style="text-align:center">-u</td>
+<td style="text-align:left">Consider mapping quality in RNA-Seq</td>
+</tr>
+<tr>
+<td style="text-align:center">-U</td>
+<td style="text-align:left">Consider mapping quality in DNA-Seq</td>
+</tr>
+<tr>
+<td style="text-align:center">-a</td>
+<td style="text-align:left">Trim x bases up and y bases down per read [0-0] in RNA-Seq</td>
+</tr>
+<tr>
+<td style="text-align:center">-A</td>
+<td style="text-align:left">Trim x bases up and y bases down per read [0-0] in DNA-Seq</td>
+</tr>
+<tr>
+<td style="text-align:center">-b</td>
+<td style="text-align:left">Blat folder for correction in RNA-Seq</td>
+</tr>
+<tr>
+<td style="text-align:center">-B</td>
+<td style="text-align:left">Blat folder for correction in DNA-Seq</td>
+</tr>
+<tr>
+<td style="text-align:center">-l</td>
+<td style="text-align:left">Remove substitutions in homopolymeric regions in RNA-Seq</td>
+</tr>
+<tr>
+<td style="text-align:center">-L</td>
+<td style="text-align:left">Remove substitutions in homopolymeric regions in DNA-Seq</td>
+</tr>
+<tr>
+<td style="text-align:center">-v</td>
+<td style="text-align:left">Minimum number of reads supporting the variation [3] for RNA-Seq</td>
+</tr>
+<tr>
+<td style="text-align:center">-n</td>
+<td style="text-align:left">Minimum editing frequency [0.1] for RNA-Seq</td>
+</tr>
+<tr>
+<td style="text-align:center">-N</td>
+<td style="text-align:left">Minimum variation frequency [0.1] for DNA-Seq</td>
+</tr>
+<tr>
+<td style="text-align:center">-z</td>
+<td style="text-align:left">Exclude positions with multiple changes in RNA-Seq</td>
+</tr>
+<tr>
+<td style="text-align:center">-Z</td>
+<td style="text-align:left">Exclude positions with multiple changes in DNA-Seq</td>
+</tr>
+<tr>
+<td style="text-align:center">-W</td>
+<td style="text-align:left">Select RNA-Seq positions with defined changes (separated by comma ex: AG,TC) [default all]</td>
+</tr>
+<tr>
+<td style="text-align:center">-R</td>
+<td style="text-align:left">Exclude invariant RNA-Seq positions</td>
+</tr>
+<tr>
+<td style="text-align:center">-V</td>
+<td style="text-align:left">Exclude sites not supported by DNA-Seq</td>
+</tr>
+<tr>
+<td style="text-align:center">-w</td>
+<td style="text-align:left">File containing splice sites annotations (SpliceSite file format see above for details)</td>
+</tr>
+<tr>
+<td style="text-align:center">-r</td>
+<td style="text-align:left">Num. of bases near splice sites to explore [4]</td>
+</tr>
+<tr>
+<td style="text-align:center">--gzip</td>
+<td style="text-align:left">Gzip output files</td>
+</tr>
+<tr>
+<td style="text-align:center">-h, --help</td>
+<td style="text-align:left">Print the help</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> REDItoolDnaRna.py -i rnaseq.bam -j dnaseq.bam -f myreference.fa -o myoutputfolder
+</pre><h3 class="mume-header" id="reditoolknownpy"><a href="http://REDItoolKnown.py">REDItoolKnown.py</a></h3>
+
+<p><a href="http://REDItoolKnown.py">REDItoolKnown.py</a> has been developed to explore the RNA editing potential of RNA-Seq data<br>
+sets using known editing events. Such events can be downloaded from DARNED database or<br>
+generated from supplementary materials of a variety of publications. Known RNA editing events<br>
+have to be stored in TAB files (see above for details).</p>
+<p>Options:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">option</th>
+<th style="text-align:left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-i</td>
+<td style="text-align:left">BAM file</td>
+</tr>
+<tr>
+<td style="text-align:center">-I</td>
+<td style="text-align:left">Sort input BAM file</td>
+</tr>
+<tr>
+<td style="text-align:center">-f</td>
+<td style="text-align:left">Reference in fasta file</td>
+</tr>
+<tr>
+<td style="text-align:center">-l</td>
+<td style="text-align:left">List of known RNA editing events</td>
+</tr>
+<tr>
+<td style="text-align:center">-C</td>
+<td style="text-align:left">Base interval to explore [100000]</td>
+</tr>
+<tr>
+<td style="text-align:center">-k</td>
+<td style="text-align:left">List of chromosomes to skip separated by comma or file</td>
+</tr>
+<tr>
+<td style="text-align:center">-t</td>
+<td style="text-align:left">Number of threads [1]</td>
+</tr>
+<tr>
+<td style="text-align:center">-o</td>
+<td style="text-align:left">Output folder [rediFolder_XXXX] in which all results will be stored. XXXX is a random number generated at each run.</td>
+</tr>
+<tr>
+<td style="text-align:center">-F</td>
+<td style="text-align:left">Internal folder name [null] is the main folder containing output tables.</td>
+</tr>
+<tr>
+<td style="text-align:center">-c</td>
+<td style="text-align:left">Min. read coverage [10]</td>
+</tr>
+<tr>
+<td style="text-align:center">-Q</td>
+<td style="text-align:left">Fastq offset value [33]</td>
+</tr>
+<tr>
+<td style="text-align:center">-q</td>
+<td style="text-align:left">Minimum quality score [25]</td>
+</tr>
+<tr>
+<td style="text-align:center">-m</td>
+<td style="text-align:left">Minimum mapping quality score [25]</td>
+</tr>
+<tr>
+<td style="text-align:center">-O</td>
+<td style="text-align:left">Minimum homoplymeric length [5]</td>
+</tr>
+<tr>
+<td style="text-align:center">-s</td>
+<td style="text-align:left">Infer strand (for strand oriented reads) [1]. It indicates which read is in line with RNA. Available values are: 1:read1 as RNA,read2 not as RNA; 2:read1 not as RNA,read2 as RNA; 12:read1 as RNA,read2 as RNA; 0:read1 not as RNA,read2 not as RNA.</td>
+</tr>
+<tr>
+<td style="text-align:center">-g</td>
+<td style="text-align:left">Strand inference type 1:maxValue 2:useConfidence [1]; maxValue: the most prominent strand count will be used; useConfidence: strand is assigned if over a prefixed frequency confidence (-x option)</td>
+</tr>
+<tr>
+<td style="text-align:center">-x</td>
+<td style="text-align:left">Strand confidence [0.70]</td>
+</tr>
+<tr>
+<td style="text-align:center">-S</td>
+<td style="text-align:left">Strand correction. Once the strand has been inferred, only bases according to this strand will be selected.</td>
+</tr>
+<tr>
+<td style="text-align:center">-G</td>
+<td style="text-align:left">Infer strand by GFF annotation (must be sorted, otherwise use -X). Sorting requires grep and sort unix executables.</td>
+</tr>
+<tr>
+<td style="text-align:center">-X</td>
+<td style="text-align:left">Sort annotation files. It requires grep and sort unix executables.</td>
+</tr>
+<tr>
+<td style="text-align:center">-K</td>
+<td style="text-align:left">File with positions to exclude (chromosome_name coordinate)</td>
+</tr>
+<tr>
+<td style="text-align:center">-e</td>
+<td style="text-align:left">Exclude multi hits</td>
+</tr>
+<tr>
+<td style="text-align:center">-d</td>
+<td style="text-align:left">Exclude duplicates</td>
+</tr>
+<tr>
+<td style="text-align:center">-p</td>
+<td style="text-align:left">Use paired concardant reads only</td>
+</tr>
+<tr>
+<td style="text-align:center">-u</td>
+<td style="text-align:left">Consider mapping quality</td>
+</tr>
+<tr>
+<td style="text-align:center">-T</td>
+<td style="text-align:left">Trim x bases up and y bases down per read [0-0]</td>
+</tr>
+<tr>
+<td style="text-align:center">-B</td>
+<td style="text-align:left">Blat folder for correction</td>
+</tr>
+<tr>
+<td style="text-align:center">-U</td>
+<td style="text-align:left">Remove substitutions in homopolymeric regions</td>
+</tr>
+<tr>
+<td style="text-align:center">-v</td>
+<td style="text-align:left">Minimum number of reads supporting the variation [3]</td>
+</tr>
+<tr>
+<td style="text-align:center">-n</td>
+<td style="text-align:left">Minimum editing frequency [0.1]</td>
+</tr>
+<tr>
+<td style="text-align:center">-E</td>
+<td style="text-align:left">Exclude positions with multiple changes</td>
+</tr>
+<tr>
+<td style="text-align:center">-P</td>
+<td style="text-align:left">File containing splice sites annotations (SpliceSite file format see above for details)</td>
+</tr>
+<tr>
+<td style="text-align:center">-r</td>
+<td style="text-align:left">Num. of bases near splice sites to explore [4]</td>
+</tr>
+<tr>
+<td style="text-align:center">-h</td>
+<td style="text-align:left">Print the help</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> REDItoolKnown.py -i rnaseq.bam -f reference.fa -l knownEditingSites.tab
+</pre><h3 class="mume-header" id="reditooldenovopy"><a href="http://REDItoolDenovo.py">REDItoolDenovo.py</a></h3>
+
+<p><a href="http://REDItoolDenovo.py">REDItoolDenovo.py</a> has been conceived to predict potential RNA editing events using RNA-Seq<br>
+data alone and without any a priori knowledge about genome information and biological properties<br>
+of RNA editing phenomenon.</p>
+<p>Options:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">option</th>
+<th style="text-align:left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-i</td>
+<td style="text-align:left">BAM file</td>
+</tr>
+<tr>
+<td style="text-align:center">-I</td>
+<td style="text-align:left">Sort input BAM file</td>
+</tr>
+<tr>
+<td style="text-align:center">-f</td>
+<td style="text-align:left">Reference in fasta file</td>
+</tr>
+<tr>
+<td style="text-align:center">-k</td>
+<td style="text-align:left">List of chromosomes to skip separated by comma or file</td>
+</tr>
+<tr>
+<td style="text-align:center">-t</td>
+<td style="text-align:left">Number of threads [1]</td>
+</tr>
+<tr>
+<td style="text-align:center">-o</td>
+<td style="text-align:left">Output folder [rediFolder_XXXX] in which all results will be stored. XXXX is a random number generated at each run.</td>
+</tr>
+<tr>
+<td style="text-align:center">-F</td>
+<td style="text-align:left">Internal folder name [null] is the main folder containing output tables.</td>
+</tr>
+<tr>
+<td style="text-align:center">-b</td>
+<td style="text-align:left">Use input distribution file</td>
+</tr>
+<tr>
+<td style="text-align:center">-a</td>
+<td style="text-align:left">Fisher Tail [l, r, t] [default l] [l=left_tail, r=right_tail, t=two_tail]</td>
+</tr>
+<tr>
+<td style="text-align:center">-c</td>
+<td style="text-align:left">Min. read coverage [10]</td>
+</tr>
+<tr>
+<td style="text-align:center">-Q</td>
+<td style="text-align:left">Fastq offset value [33]</td>
+</tr>
+<tr>
+<td style="text-align:center">-q</td>
+<td style="text-align:left">Min. quality score [25]</td>
+</tr>
+<tr>
+<td style="text-align:center">-m</td>
+<td style="text-align:left">Min. mapping quality score [25]</td>
+</tr>
+<tr>
+<td style="text-align:center">-O</td>
+<td style="text-align:left">Min. homoplymeric length [5]</td>
+</tr>
+<tr>
+<td style="text-align:center">-s</td>
+<td style="text-align:left">Infer strand (for strand oriented reads) [1]. It indicates which read is in line with RNA. Available values are: 1:read1 as RNA,read2 not as RNA; 2:read1 not as RNA,read2 as RNA; 12:read1 as RNA,read2 as RNA; 0:read1 not as RNA,read2 not as RNA.</td>
+</tr>
+<tr>
+<td style="text-align:center">-g</td>
+<td style="text-align:left">Strand inference type 1:maxValue 2:useConfidence [1]; maxValue: the most prominent strand count will be used; useConfidence: strand is assigned if over a prefixed frequency confidence (-x option)</td>
+</tr>
+<tr>
+<td style="text-align:center">-x</td>
+<td style="text-align:left">Strand confidence [0.70]</td>
+</tr>
+<tr>
+<td style="text-align:center">-S</td>
+<td style="text-align:left">Strand correction. Once the strand has been inferred, only bases according to this strand will be selected.</td>
+</tr>
+<tr>
+<td style="text-align:center">-G</td>
+<td style="text-align:left">Infer strand by gff annotation (must be sorted, otherwise use -X)</td>
+</tr>
+<tr>
+<td style="text-align:center">-X</td>
+<td style="text-align:left">Sort annotation files</td>
+</tr>
+<tr>
+<td style="text-align:center">-K</td>
+<td style="text-align:left">File with positions to exclude</td>
+</tr>
+<tr>
+<td style="text-align:center">-e</td>
+<td style="text-align:left">Exclude multi hits</td>
+</tr>
+<tr>
+<td style="text-align:center">-d</td>
+<td style="text-align:left">Exclude duplicates</td>
+</tr>
+<tr>
+<td style="text-align:center">-l</td>
+<td style="text-align:left">Select significant sites</td>
+</tr>
+<tr>
+<td style="text-align:center">-V</td>
+<td style="text-align:left">Significant value [0.05]</td>
+</tr>
+<tr>
+<td style="text-align:center">-w</td>
+<td style="text-align:left">Statistical test [BH, BO, NO] [default BH] [BH=Benjamini, BO=Bonferroni, NO=No Correction]</td>
+</tr>
+<tr>
+<td style="text-align:center">-U</td>
+<td style="text-align:left">Use specific substitutions separated by comma [example: AG,TC]</td>
+</tr>
+<tr>
+<td style="text-align:center">-p</td>
+<td style="text-align:left">Use paired concardant reads only</td>
+</tr>
+<tr>
+<td style="text-align:center">-u</td>
+<td style="text-align:left">Consider mapping quality</td>
+</tr>
+<tr>
+<td style="text-align:center">-T</td>
+<td style="text-align:left">Trim x bases up and y bases down per read [0-0]</td>
+</tr>
+<tr>
+<td style="text-align:center">-B</td>
+<td style="text-align:left">Blat folder for correction</td>
+</tr>
+<tr>
+<td style="text-align:center">-W</td>
+<td style="text-align:left">Remove substitutions in homopolymeric regions</td>
+</tr>
+<tr>
+<td style="text-align:center">-v</td>
+<td style="text-align:left">Minimum number of reads supporting the variation [3]</td>
+</tr>
+<tr>
+<td style="text-align:center">-n</td>
+<td style="text-align:left">Minimum editing frequency [0.1]</td>
+</tr>
+<tr>
+<td style="text-align:center">-E</td>
+<td style="text-align:left">Exclude positions with multiple changes</td>
+</tr>
+<tr>
+<td style="text-align:center">-P</td>
+<td style="text-align:left">File containing splice sites annotations (SpliceSite file format see above for details)</td>
+</tr>
+<tr>
+<td style="text-align:center">-r</td>
+<td style="text-align:left">Number of bases near splice sites to explore [4]</td>
+</tr>
+<tr>
+<td style="text-align:center">-h</td>
+<td style="text-align:left">Print the help</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> REDItoolDenovo.py -i rnaseq.bam -f reference.fa
+</pre><h2 class="mume-header" id="additional-scripts">Additional scripts:</h2>
+
+<h3 class="mume-header" id="reditoolblatcorrectionpy"><a href="http://REDItoolBlatCorrection.py">REDItoolBlatCorrection.py</a></h3>
+
+<p><a href="http://REDItoolBlatCorrection.py">REDItoolBlatCorrection.py</a> requires gfServer and gfClient programs from <a href="http://hgdownload.cse.ucsc.edu/admin/exe/">Blat package</a>.<br>
+Reference fasta file can be converted in .2bit format using the utility <a href="http://hgdownload.cse.ucsc.edu/admin/exe/">faToTwoBit</a>.</p>
+<p>Options:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">option</th>
+<th style="text-align:left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-i</td>
+<td style="text-align:left">BAM file</td>
+</tr>
+<tr>
+<td style="text-align:center">-I</td>
+<td style="text-align:left">Sort input BAM file</td>
+</tr>
+<tr>
+<td style="text-align:center">-f</td>
+<td style="text-align:left">Genomic fasta file</td>
+</tr>
+<tr>
+<td style="text-align:center">-F</td>
+<td style="text-align:left">Genomic fasta file in 2bit format for gfServer</td>
+</tr>
+<tr>
+<td style="text-align:center">-t</td>
+<td style="text-align:left">Num. of working threads [1]</td>
+</tr>
+<tr>
+<td style="text-align:center">-o</td>
+<td style="text-align:left">Output Folder [BlatCorrection_XXXX]</td>
+</tr>
+<tr>
+<td style="text-align:center">-k</td>
+<td style="text-align:left">List of chromosomes to skip separated by comma or file</td>
+</tr>
+<tr>
+<td style="text-align:center">-r</td>
+<td style="text-align:left">Regions in GFF in which Blat will be launched</td>
+</tr>
+<tr>
+<td style="text-align:center">-s</td>
+<td style="text-align:left">Sort GFF (if unsorted). It requires grep and sort unix executables.</td>
+</tr>
+<tr>
+<td style="text-align:center">-q</td>
+<td style="text-align:left">Minimum quality score [25]</td>
+</tr>
+<tr>
+<td style="text-align:center">-Q</td>
+<td style="text-align:left">Fastq offset value [33]</td>
+</tr>
+<tr>
+<td style="text-align:center">-V</td>
+<td style="text-align:left">Verify if gfServer is alive</td>
+</tr>
+<tr>
+<td style="text-align:center">-T</td>
+<td style="text-align:left">Stop gfServer at script end</td>
+</tr>
+<tr>
+<td style="text-align:center">-h</td>
+<td style="text-align:left">Print the help</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> REDItoolBlatCorrection.py -i rnaseq.bam -f reference.fa -F reference.2bit -o BlatCorrection -V -T
+</pre><p>At the end of the run, in the BlatCorrection folder, there will be different .bad files, one per chromosome/region.<br>
+Each .bad file includes two space separated columns:</p>
+<ul>
+<li>read name</li>
+<li>a number from 0 to 2 indicating the read mate; 1: if read is first in pair, 2: if read is second in pair, 0: if read is a single end</li>
+</ul>
+<p>And the content looks like:</p>
+<p>TUPAC_0006:2:41:10999:19783#0 1<br>
+TUPAC_0006:2:41:10999:19783#0 2<br>
+TUPAC_0006:3:54:8655:18923#0 2<br>
+PRESLEY_0005:1:73:13079:17565#0 1<br>
+TUPAC_0006:2:9:12695:14552#0 1<br>
+PRESLEY_0005:1:73:13079:17565#0 1<br>
+TUPAC_0006:2:9:12695:14552#0 1<br>
+PRESLEY_0005:1:12:1152:17918#0 2<br>
+SINATRA_0006:7:15:8730:10887#0 1<br>
+SINATRA_0006:7:67:12736:11713#0 1<br>
+SINATRA_0006:7:50:9125:3151#0 1<br>
+SINATRA_0006:8:49:4592:20505#0 1<br>
+SINATRA_0006:7:14:10225:3766#0 1<br>
+PRESLEY_0005:1:118:4480:20145#0 1<br>
+SINATRA_0006:7:6:19272:9901#0 1</p>
+<h3 class="mume-header" id="filtertablepy"><a href="http://FilterTable.py">FilterTable.py</a></h3>
+
+<p><a href="http://FilterTable.py">FilterTable.py</a> filters positions of a input table according to specific annotations indexed by tabix tool.<br>
+Filtered out positions will be marked with &quot;#&quot; at the beginning of each line. To exclude such lines the<br>
+option -E should be used. Features are the same as indicated in the third field of GTF annotation file.</p>
+<p>Options:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">option</th>
+<th style="text-align:left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-i</td>
+<td style="text-align:left">Table file</td>
+</tr>
+<tr>
+<td style="text-align:center">-f</td>
+<td style="text-align:left">Sorted file with positions to filter in (GTF sorted file as above)</td>
+</tr>
+<tr>
+<td style="text-align:center">-s</td>
+<td style="text-align:left">Sorted file with positions to filter out (GTF sorted file as above)</td>
+</tr>
+<tr>
+<td style="text-align:center">-F</td>
+<td style="text-align:left">Features to filter in (separated by comma)</td>
+</tr>
+<tr>
+<td style="text-align:center">-S</td>
+<td style="text-align:left">Features to filter out (separated by comma)</td>
+</tr>
+<tr>
+<td style="text-align:center">-E</td>
+<td style="text-align:left">Exclude positions filtered out</td>
+</tr>
+<tr>
+<td style="text-align:center">-o</td>
+<td style="text-align:left">Save filtered lines to a file [stdout]</td>
+</tr>
+<tr>
+<td style="text-align:center">-p</td>
+<td style="text-align:left">Print simple statistics</td>
+</tr>
+<tr>
+<td style="text-align:center">-h</td>
+<td style="text-align:left">Print the help</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> FilterTable.py -i mytable -s dbsnp137.gtf.gz -S snp -o mytable_filtered -E -p
+</pre><h3 class="mume-header" id="annotatetablepy"><a href="http://AnnotateTable.py">AnnotateTable.py</a></h3>
+
+<p><a href="http://AnnotateTable.py">AnnotateTable.py</a> annotates individual positions of a table file according to annotations indexed by tabix tool.<br>
+It adds from 1 to 3 additional columns according to -c option.</p>
+<p>Options:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">option</th>
+<th style="text-align:left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-a</td>
+<td style="text-align:left">Sorted Annotation file in GTF format</td>
+</tr>
+<tr>
+<td style="text-align:center">-i</td>
+<td style="text-align:left">Annotate a file of positions [column1=region, column2=coordinate (1 based)] or a single position [region:coordinate (1 based)]</td>
+</tr>
+<tr>
+<td style="text-align:center">-s</td>
+<td style="text-align:left">Strand column in annotation file [4]</td>
+</tr>
+<tr>
+<td style="text-align:center">-u</td>
+<td style="text-align:left">Not use table strand info (fix it to 2)</td>
+</tr>
+<tr>
+<td style="text-align:center">-c</td>
+<td style="text-align:left">Add columns separated by comma (feature:1, gene_id:2, transcript_id:3) [1,2]</td>
+</tr>
+<tr>
+<td style="text-align:center">-n</td>
+<td style="text-align:left">Column name [Col]</td>
+</tr>
+<tr>
+<td style="text-align:center">-S</td>
+<td style="text-align:left">Correct strand by annotation</td>
+</tr>
+<tr>
+<td style="text-align:center">-C</td>
+<td style="text-align:left">Columns with base distribution [7,12] (in combination with -S)</td>
+</tr>
+<tr>
+<td style="text-align:center">-o</td>
+<td style="text-align:left">Save lines to a file</td>
+</tr>
+<tr>
+<td style="text-align:center">-h</td>
+<td style="text-align:left">Print the help</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> AnnotateTable.py -i mytable -a rmsk.gtf.gz -u -c1,2,3 -n rmsk -o mytable_rmsk
+</pre><h3 class="mume-header" id="searchintablepy"><a href="http://SearchInTable.py">SearchInTable.py</a></h3>
+
+<p><a href="http://SearchInTable.py">SearchInTable.py</a> looks for individual positions in a list or table of positions.</p>
+<p>Options:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">option</th>
+<th style="text-align:left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-i</td>
+<td style="text-align:left">Sorted table file (first col=reference; second col=coordinate 1 based) or tabix indexed table (ending with .gz) (TAB format is required)</td>
+</tr>
+<tr>
+<td style="text-align:center">-j</td>
+<td style="text-align:left">Query (file or single positions as chr21:123456)</td>
+</tr>
+<tr>
+<td style="text-align:center">-C</td>
+<td style="text-align:left">Sequence name column [1]</td>
+</tr>
+<tr>
+<td style="text-align:center">-S</td>
+<td style="text-align:left">Start column [2]</td>
+</tr>
+<tr>
+<td style="text-align:center">-E</td>
+<td style="text-align:left">End column; can be identical to '-S' [2]</td>
+</tr>
+<tr>
+<td style="text-align:center">-p</td>
+<td style="text-align:left">Print position header (like a fasta header &gt;chr21:123456)</td>
+</tr>
+<tr>
+<td style="text-align:center">-n</td>
+<td style="text-align:left">Print &quot;Not found&quot;</td>
+</tr>
+<tr>
+<td style="text-align:center">-s</td>
+<td style="text-align:left">Print simple statistics on standard error</td>
+</tr>
+<tr>
+<td style="text-align:center">-o</td>
+<td style="text-align:left">Save found/not found positions on file</td>
+</tr>
+<tr>
+<td style="text-align:center">-h</td>
+<td style="text-align:left">Print this help</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> SearchInTable.py -i mytable.gz -j mypositions -s -o results
+</pre><h3 class="mume-header" id="selectpositionspy"><a href="http://selectPositions.py">selectPositions.py</a></h3>
+
+<p><a href="http://selectPositions.py">selectPositions.py</a> can filter an output REDItool table according to different criteria.</p>
+<p>Options:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">option</th>
+<th style="text-align:left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-i</td>
+<td style="text-align:left">Table file from REDItools</td>
+</tr>
+<tr>
+<td style="text-align:center">-d</td>
+<td style="text-align:left">Base distribution column for DNA-Seq (-1: no DNA-Seq) [-1]</td>
+</tr>
+<tr>
+<td style="text-align:center">-c</td>
+<td style="text-align:left">Coverage RNA-Seq [5]</td>
+</tr>
+<tr>
+<td style="text-align:center">-C</td>
+<td style="text-align:left">Coverage DNA-Seq [5]</td>
+</tr>
+<tr>
+<td style="text-align:center">-v</td>
+<td style="text-align:left">Bases supporting RNA-Seq variation [1]</td>
+</tr>
+<tr>
+<td style="text-align:center">-V</td>
+<td style="text-align:left">Bases supporting DNA-Seq variation [0]</td>
+</tr>
+<tr>
+<td style="text-align:center">-s</td>
+<td style="text-align:left">Substitutions to select in RNA-Seq (separated by comma AG,CT) [all]</td>
+</tr>
+<tr>
+<td style="text-align:center">-f</td>
+<td style="text-align:left">Frequency of variation in RNA-Seq [0.1]</td>
+</tr>
+<tr>
+<td style="text-align:center">-F</td>
+<td style="text-align:left">Frequency of non-variation in DNA-Seq [0.95]</td>
+</tr>
+<tr>
+<td style="text-align:center">-e</td>
+<td style="text-align:left">Exclude multiple substitutions in RNA-Seq</td>
+</tr>
+<tr>
+<td style="text-align:center">-r</td>
+<td style="text-align:left">Exclude invariant sites in RNA-Seq</td>
+</tr>
+<tr>
+<td style="text-align:center">-R</td>
+<td style="text-align:left">Exclude variant sites in DNA-Seq #</td>
+</tr>
+<tr>
+<td style="text-align:center">-u</td>
+<td style="text-align:left">Use only positions supported by DNA-Seq</td>
+</tr>
+<tr>
+<td style="text-align:center">-o</td>
+<td style="text-align:left">Save selected positions on outTable_533864766</td>
+</tr>
+<tr>
+<td style="text-align:center">-h</td>
+<td style="text-align:left">Print this help</td>
+</tr>
+</tbody>
+</table>
+<h3 class="mume-header" id="sorttablepy-new-in-version-103"><a href="http://SortTable.py">SortTable.py</a> (new in version 1.0.3)</h3>
+
+<p><a href="http://SortTable.py">SortTable.py</a> is a facility to sort an input table according to genomic region and coordinates.<br>
+Input table may be TAB-delimited or use whatever delimiter. This script has been introduced for<br>
+users working on operating systems in which the sort program is not present. On very large input files<br>
+sorting time may increase respect to the unix sort program. On common GFFs including gene annotations<br>
+sorting time is lower or equal than the sort program.<br>
+Optionally, an input table can be outputted as TAB-delimited. Please tune the -b option according to<br>
+your memory capability. Default value should work well for many computers.</p>
+<p>Options:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">option</th>
+<th style="text-align:left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-i</td>
+<td style="text-align:left">Table file</td>
+</tr>
+<tr>
+<td style="text-align:center">-d</td>
+<td style="text-align:left">Delimiter character [\t] (default TAB)</td>
+</tr>
+<tr>
+<td style="text-align:center">-s</td>
+<td style="text-align:left">Sequence name column [1]</td>
+</tr>
+<tr>
+<td style="text-align:center">-c</td>
+<td style="text-align:left">Start column [4]</td>
+</tr>
+<tr>
+<td style="text-align:center">-e</td>
+<td style="text-align:left">End column (can be identical to -c) [5]</td>
+</tr>
+<tr>
+<td style="text-align:center">-m</td>
+<td style="text-align:left">Skip lines starting with [#]</td>
+</tr>
+<tr>
+<td style="text-align:center">-o</td>
+<td style="text-align:left">Sorted output file [sortedTable_%s]</td>
+</tr>
+<tr>
+<td style="text-align:center">-O</td>
+<td style="text-align:left">Output as TAB-delimited</td>
+</tr>
+<tr>
+<td style="text-align:center">-b</td>
+<td style="text-align:left">Buffer size (as number of lines) [32000]</td>
+</tr>
+<tr>
+<td style="text-align:center">-t</td>
+<td style="text-align:left">Temporary directory to use (multiple -t may be used)</td>
+</tr>
+<tr>
+<td style="text-align:center">-h</td>
+<td style="text-align:left">Print this help</td>
+</tr>
+</tbody>
+</table>
+<p>Example for input table with space-based columns:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> SortTable.py -i mytable.txt -d <span class="token string">' '</span> -s 1 -c 2 -e 2 -O
+</pre><h3 class="mume-header" id="tabletotabixpy-new-in-version-103"><a href="http://tableToTabix.py">tableToTabix.py</a> (new in version 1.0.3)</h3>
+
+<p><a href="http://tableToTabix.py">tableToTabix.py</a> create a tabix table and by default sort the input table. Useful to generate tabix tables<br>
+from GFF file to prepare in advance annotation tables for REDItools. As a specific alternative, <a href="http://GFFtoTabix.py">GFFtoTabix.py</a> may be used. Option -b should be tuned according to<br>
+memory capabilities in case of sorting. Tabix by default compresses the input table and then creates indices. If<br>
+a copy of the sorted and uncompressed table is needed, -u option should be used.</p>
+<p>Options:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">option</th>
+<th style="text-align:left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-i</td>
+<td style="text-align:left">TAB-delimited file</td>
+</tr>
+<tr>
+<td style="text-align:center">-s</td>
+<td style="text-align:left">Sequence name column [1]</td>
+</tr>
+<tr>
+<td style="text-align:center">-c</td>
+<td style="text-align:left">Start column [4]</td>
+</tr>
+<tr>
+<td style="text-align:center">-e</td>
+<td style="text-align:left">End column (can be identical to -c) [5]</td>
+</tr>
+<tr>
+<td style="text-align:center">-m</td>
+<td style="text-align:left">Skip lines starting with [#]</td>
+</tr>
+<tr>
+<td style="text-align:center">-0</td>
+<td style="text-align:left">Zero based coordinates</td>
+</tr>
+<tr>
+<td style="text-align:center">-S</td>
+<td style="text-align:left">Do not sort input file (sort by default)</td>
+</tr>
+<tr>
+<td style="text-align:center">-b</td>
+<td style="text-align:left">Buffer size (as number of lines) [32000]</td>
+</tr>
+<tr>
+<td style="text-align:center">-t</td>
+<td style="text-align:left">Temporary directory to use (multiple -t may be used)</td>
+</tr>
+<tr>
+<td style="text-align:center">-u</td>
+<td style="text-align:left">Save an uncompressed GFF copy (add _copy suffix)</td>
+</tr>
+<tr>
+<td style="text-align:center">-h</td>
+<td style="text-align:left">Print this help</td>
+</tr>
+</tbody>
+</table>
+<p>Example for GFF file:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> tableToTabix.py -i mytable.gff -u
+</pre><h3 class="mume-header" id="sortgffpy-new-in-version-103"><a href="http://SortGFF.py">SortGFF.py</a> (new in version 1.0.3)</h3>
+
+<p><a href="http://SortGFF.py">SortGFF.py</a> is a facility to sort only GFF files and works as <a href="http://SortTable.py">SortTable.py</a>. Option -b should be tuned<br>
+according to memory capabilities. Useful for users working on machines in which the sort program is not present.</p>
+<p>Options:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">option</th>
+<th style="text-align:left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-i</td>
+<td style="text-align:left">GFF file</td>
+</tr>
+<tr>
+<td style="text-align:center">-o</td>
+<td style="text-align:left">Sorted output file [GFF_sorted_%s]</td>
+</tr>
+<tr>
+<td style="text-align:center">-b</td>
+<td style="text-align:left">Buffer size (as number of lines) [32000]</td>
+</tr>
+<tr>
+<td style="text-align:center">-t</td>
+<td style="text-align:left">Temporary directory to use (multiple -t may be used)</td>
+</tr>
+<tr>
+<td style="text-align:center">-h</td>
+<td style="text-align:left">Print this help</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> SortGFF.py -i mytable.gff -u
+</pre><h3 class="mume-header" id="gfftotabixpy-new-in-version-103"><a href="http://GFFtoTabix.py">GFFtoTabix.py</a> (new in version 1.0.3)</h3>
+
+<p><a href="http://GFFtoTabix.py">GFFtoTabix.py</a> is a script to convert GFF files to tabix files. Useful to generate GFF annotations for REDItools.<br>
+It works as <a href="http://tableToTabix.py">tableToTabix.py</a> but specific for GFF files. Use -u to store an uncompressed version of input GFF.<br>
+Sorting is activated by default.</p>
+<p>Options:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">option</th>
+<th style="text-align:left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-i</td>
+<td style="text-align:left">GFF file</td>
+</tr>
+<tr>
+<td style="text-align:center">-S</td>
+<td style="text-align:left">Do not sort GFF (sort by default)</td>
+</tr>
+<tr>
+<td style="text-align:center">-b</td>
+<td style="text-align:left">Buffer size (as number of lines) [32000]</td>
+</tr>
+<tr>
+<td style="text-align:center">-t</td>
+<td style="text-align:left">Temporary directory to use (multiple -t may be used)</td>
+</tr>
+<tr>
+<td style="text-align:center">-u</td>
+<td style="text-align:left">Save an uncompressed GFF copy (add _copy suffix)</td>
+</tr>
+<tr>
+<td style="text-align:center">-h</td>
+<td style="text-align:left">Print this help</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> GFFtoTabix.py -i mytable.gff -u
+</pre><h3 class="mume-header" id="tabletogffpy-new-in-version-103"><a href="http://TableToGFF.py">TableToGFF.py</a> (new in version 1.0.3)</h3>
+
+<p><a href="http://TableToGFF.py">TableToGFF.py</a> is a facility to convert an output REDItool table to GFF in order to be used as input in <a href="http://REDItoolDnaRna.py">REDItoolDnaRna.py</a>.<br>
+Optionally, it can sort and tabix the output GFF. Options -b and -T work if -s is in effect.</p>
+<p>Options:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">option</th>
+<th style="text-align:left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-i</td>
+<td style="text-align:left">Table file from REDItools</td>
+</tr>
+<tr>
+<td style="text-align:center">-s</td>
+<td style="text-align:left">Sort output GFF</td>
+</tr>
+<tr>
+<td style="text-align:center">-t</td>
+<td style="text-align:left">Tabix output GFF (requires Pysam module)</td>
+</tr>
+<tr>
+<td style="text-align:center">-b</td>
+<td style="text-align:left">Buffer size (as number of lines) [32000] (requires -s)</td>
+</tr>
+<tr>
+<td style="text-align:center">-T</td>
+<td style="text-align:left">Temporary directory (requires -s)</td>
+</tr>
+<tr>
+<td style="text-align:center">-o</td>
+<td style="text-align:left">Outfile [outTable_%s.gff]</td>
+</tr>
+<tr>
+<td style="text-align:center">-h</td>
+<td style="text-align:left">Print this help</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> TableToGFF.py -i mytable -s -t -o myoutputTable.gff
+</pre><h2 class="mume-header" id="usage-example">Usage Example</h2>
+
+<h3 class="mume-header" id="test-dataset">Test dataset</h3>
+
+<p>The following example shows how to use REDItools to detect RNA editing sites in Alu regions. To this aim, please<br>
+download and extract testREDItools.tar.gz:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> gunzip testREDItools.tar.gz
+ <span class="token function">tar</span> -xvf testREDItools.tar
+ <span class="token function">cd</span> testREDItools
+ <span class="token function">ls</span>
+ dna.bam      reditool-output-sample.tar.gz  reference.fa.fai       refGene.sorted.gtf.gz.tbi  rmsk.gtf.gz.tbi  rna.bam.bai
+ dna.bam.bai  reference.fa            refGene.sorted.gtf.gz  rmsk.gtf.gz                rna.bam
+</pre><p>The testREDItools folder contains:</p>
+<ul>
+<li>rna.bam: aligned RNA-Seq reads in BAM format (coordinate sorted by samtools sort)</li>
+<li>rna.bam.bai: index file for rna.bam (indexed by samtools index)</li>
+<li>dna.bam: aligned DNA-Seq reads (coordinate sorted by samtools sort)</li>
+<li>dna.bam.bai: index file for dna.bam (indexed by samtools index)</li>
+<li>reference.fa: reference genome in fasta format</li>
+<li>reference.fa.fai: index file for reference.fa (indexed by samtools faidx)</li>
+<li>rmsk.gtf.gz: gzipped gtf file of repeated elements (sorted by sort -k1,1 -k2,4n)</li>
+<li>rmsk.gtf.gz.tbi: tabix index file for rmsk.gtf.gz</li>
+<li>refGene.sorted.gtf.gz: gzipped gtf file of RefSeq genes (sorted by sort -k1,1 -k2,4n)</li>
+<li>refGene.sorted.gtf.gz.tbi: tabix index file for refGene.sorted.gtf.gz</li>
+<li>reditool-output-sample.tar.gz: folder including output examples</li>
+</ul>
+<p>RNA and DNA reads were extracted from the region chr21:47721047-47743785.<br>
+Reads were obtained according to Ramaswami et al. paper. RNA reads mapped by BWA where kindly provided by<br>
+Gokul Ramaswami.<br>
+If REDItools have been correctly installed in your path, you can call all <a href="http://REDItoolDnaRNA.py">REDItoolDnaRNA.py</a> options:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> REDItoolDnaRna.py -h
+</pre><p>If everything is ok, <a href="http://REDItoolDnaRna.py">REDItoolDnaRna.py</a> can be launched by:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> <span class="token punctuation">[</span>epicardi@srv00 sample<span class="token punctuation">]</span>$ REDItoolDnaRna.py -i rna.bam -j dna.bam -f reference.fa -o reditool-test -c 10,1 -Q 33,64 -q 25,25 -m 20,20 -s 2 -g 1 -u -a 6-0 -v 2 -n0.0 -N0.0 -V
+ Script <span class="token function">time</span> --<span class="token operator">></span> START: 06/02/2013 20:44:48
+ Analysis ID: 891206177
+ Analysis on 1 regions.
+ Started analysis on region: chr21
+ Job completed <span class="token keyword">for</span> region: chr21
+ Merging Tables.
+ Results saved on reditool-test/DnaRna_891206177/outTable_891206177
+ Script <span class="token function">time</span> --<span class="token operator">></span> END: 06/02/2013 20:45:13
+</pre><p>In this case we are requiring to extract RNA and DNA positions with a minimal coverage of 10 for DNA and 1 for RNA, a minimum quality score of 25 for both,<br>
+a minimum mapping quality of 20 for both. Please consider that quality scores in DNA are in Sanger format, so 33 is used as offset to calculate the phred score<br>
+per site genomic. On the contrary, quality scores for RNA reads are in the Illumina 1.3+ format and, thus, the value 64 has to be used through the option -Q.<br>
+Since RNA reads are strand oriented and the second read of the pair maintains the RNA orientation, we ask <a href="http://REDItoolDnaRna.py">REDItoolDnaRna.py</a> to infer the strand by -s 2 (second in pair good for orientation),<br>
+and assign to each position the overrepresented strand (-g 1 option). In addition, we remove first 6 nucleotides from each read (-a 6-0) and require sites supported by at least 2<br>
+variant bases (-v 2) without taking into account the frequency of variation in both RNA (-n 0.0) and DNA (-N 0.0). Finally, we exclude positions not supported by DNA-Seq reads (-V).<br>
+At the end of the run, <a href="http://REDItoolDnaRna.py">REDItoolDnaRna.py</a> will create the folder reditool-test/DnaRna_891206177/ and the output table outTable_891206177. The folder will contain also the parameters.txt<br>
+file summarizing all parameter values used for the run.<br>
+Now enter into the output folder:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> <span class="token function">cd</span> reditool-test/DnaRna_891206177/
+ <span class="token function">ls</span>
+ outTable_891206177  parameters.txt
+</pre><p>and run the accessory script <a href="http://selectPositions.py">selectPositions.py</a> to filter out other positions:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> selectPositions.py -i outTable_891206177 -d 12 -c 2 -C 10 -v 2 -V 0 -f 0.1 -F 1.0 -e -u -o candidates.txt
+ Script <span class="token function">time</span> --<span class="token operator">></span> START: 06/02/2013 20:46:20
+ Reading table<span class="token punctuation">..</span>.
+ Total lines: 17879
+ Filtered <span class="token keyword">in</span> lines: 10
+ Selected lines saved on candidates.txt
+ Script <span class="token function">time</span> --<span class="token operator">></span> END: 06/02/2013 20:46:21
+</pre><p>In this case we are excluding positions showing an editing frequency lower that 0.1 and supported by heterozigous DNA sites.<br>
+Option -u is used to collect only positions supported by DNA-Seq. Option -e is used to remove RNA positions showing multiple substitutions.<br>
+According to these criteria only 10 positions will be retained:</p>
+<p>more candidates.txt<br>
+Region  Position        Reference       Strand  Coverage-q25    MeanQ   BaseCount[A,C,G,T]      AllSubs Frequency       gCoverage-q25   gMeanQ  gBaseCount[A,C,G,T]  gAllSubs        gFrequency<br>
+chr21   47739131        A       0       20      34.60   [18, 0, 2, 0]   AG      0.10    30      30.40   [30, 0, 0, 0]   -       0.00<br>
+chr21   47739578        A       0       14      38.50   [11, 0, 3, 0]   AG      0.21    26      30.27   [26, 0, 0, 0]   -       0.00<br>
+chr21   47739644        A       0       18      36.61   [13, 0, 5, 0]   AG      0.28    23      30.22   [23, 0, 0, 0]   -       0.00<br>
+chr21   47739647        A       0       16      36.12   [7, 0, 9, 0]    AG      0.56    18      30.67   [18, 0, 0, 0]   -       0.00<br>
+chr21   47739724        A       0       8       37.00   [6, 0, 2, 0]    AG      0.25    30      30.10   [30, 0, 0, 0]   -       0.00<br>
+chr21   47739725        A       0       8       37.75   [5, 0, 3, 0]    AG      0.38    30      29.93   [30, 0, 0, 0]   -       0.00<br>
+chr21   47739764        A       0       6       37.33   [4, 0, 2, 0]    AG      0.33    19      30.37   [19, 0, 0, 0]   -       0.00<br>
+chr21   47740295        A       0       10      34.00   [6, 0, 4, 0]    AG      0.40    30      29.77   [30, 0, 0, 0]   -       0.00<br>
+chr21   47741150        A       0       28      36.57   [25, 0, 3, 0]   AG      0.11    24      31.54   [24, 0, 0, 0]   -       0.00<br>
+chr21   47741221        A       0       49      36.33   [44, 0, 5, 0]   AG      0.10    40      29.50   [40, 0, 0, 0]   -       0.00</p>
+<p>Now we can annotate these positions using the information in the Repeat Mask database to look at Alu sites:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> AnnotateTable.py -a <span class="token punctuation">..</span>/<span class="token punctuation">..</span>/rmsk.gtf.gz -i candidates.txt -u -c 1,2,3 -n RepMask -o candidates.rmsk.txt
+ Script <span class="token function">time</span> --<span class="token operator">></span> START: 06/02/2013 20:48:29
+ Table saved on candidates.rmsk.txt
+ Script <span class="token function">time</span> --<span class="token operator">></span> END: 06/02/2013 20:48:29
+</pre><p>more candidates.rmsk.txt<br>
+Region  Position        Reference       Strand  Coverage-q25    MeanQ   BaseCount[A,C,G,T]      AllSubs Frequency       gCoverage-q25   gMeanQ  gBaseCount[A,C,G,T]  gAllSubs        gFrequency      RepMask_feat    RepMask_gid     RepMask_tid<br>
+chr21   47739131        A       0       20      34.60   [18, 0, 2, 0]   AG      0.10    30      30.40   [30, 0, 0, 0]   -       0.00    -       -       -<br>
+chr21   47739578        A       0       14      38.50   [11, 0, 3, 0]   AG      0.21    26      30.27   [26, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE<br>
+chr21   47739644        A       0       18      36.61   [13, 0, 5, 0]   AG      0.28    23      30.22   [23, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE<br>
+chr21   47739647        A       0       16      36.12   [7, 0, 9, 0]    AG      0.56    18      30.67   [18, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE<br>
+chr21   47739724        A       0       8       37.00   [6, 0, 2, 0]    AG      0.25    30      30.10   [30, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE<br>
+chr21   47739725        A       0       8       37.75   [5, 0, 3, 0]    AG      0.38    30      29.93   [30, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE<br>
+chr21   47739764        A       0       6       37.33   [4, 0, 2, 0]    AG      0.33    19      30.37   [19, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE<br>
+chr21   47740295        A       0       10      34.00   [6, 0, 4, 0]    AG      0.40    30      29.77   [30, 0, 0, 0]   -       0.00    SINE    AluSz   Alu-SINE<br>
+chr21   47741150        A       0       28      36.57   [25, 0, 3, 0]   AG      0.11    24      31.54   [24, 0, 0, 0]   -       0.00    SINE    AluSx4  Alu-SINE<br>
+chr21   47741221        A       0       49      36.33   [44, 0, 5, 0]   AG      0.10    40      29.50   [40, 0, 0, 0]   -       0.00    SINE    AluSx4  Alu-SINE</p>
+<p>To remove positions not annotated in SINE regions we use the <a href="http://FilterTable.py">FilterTable.py</a> script:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> FilterTable.py -i candidates.rmsk.txt -f <span class="token punctuation">..</span>/<span class="token punctuation">..</span>/rmsk.gtf.gz -F SINE -E -o candidates.rmsk.alu.txt -p
+ Script <span class="token function">time</span> --<span class="token operator">></span> START: 06/02/2013 20:50:25
+ Reading Table file<span class="token punctuation">..</span>.
+ All positions: 10
+ Positions filtered in: 9
+ Positions filtered out: 1
+ Script <span class="token function">time</span> --<span class="token operator">></span> END: 06/02/2013 20:50:25
+</pre><p>Finally we can add gene annotations using RefSeq database:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"> AnnotateTable.py -a /home/epicardi/annotation/hg19/annotation/tabixAnn/refseq/refGene.sorted.gtf.gz -i candidates.rmsk.alu.txt -u -c 1,2 -n RefSeq -o candidates.rmsk.alu.ann.txt
+ Script <span class="token function">time</span> --<span class="token operator">></span> START: 06/02/2013 20:52:48
+ Table saved on candidates.rmsk.alu.ann.txt
+ Script <span class="token function">time</span> --<span class="token operator">></span> END: 06/02/2013 20:52:48
+</pre><p>more candidates.rmsk.alu.ann.txt<br>
+Region  Position        Reference       Strand  Coverage-q25    MeanQ   BaseCount[A,C,G,T]      AllSubs Frequency       gCoverage-q25   gMeanQ  gBaseCount[A,C,G,T]  gAllSubs        gFrequency      RepMask_feat    RepMask_gid     RepMask_tid     RefSeq_feat     RefSeq_gid<br>
+chr21   47739578        A       0       14      38.50   [11, 0, 3, 0]   AG      0.21    26      30.27   [26, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE     intron  C21orf58<br>
+chr21   47739644        A       0       18      36.61   [13, 0, 5, 0]   AG      0.28    23      30.22   [23, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE     intron  C21orf58<br>
+chr21   47739647        A       0       16      36.12   [7, 0, 9, 0]    AG      0.56    18      30.67   [18, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE     intron  C21orf58<br>
+chr21   47739724        A       0       8       37.00   [6, 0, 2, 0]    AG      0.25    30      30.10   [30, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE     intron  C21orf58<br>
+chr21   47739725        A       0       8       37.75   [5, 0, 3, 0]    AG      0.38    30      29.93   [30, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE     intron  C21orf58<br>
+chr21   47739764        A       0       6       37.33   [4, 0, 2, 0]    AG      0.33    19      30.37   [19, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE     intron  C21orf58<br>
+chr21   47740295        A       0       10      34.00   [6, 0, 4, 0]    AG      0.40    30      29.77   [30, 0, 0, 0]   -       0.00    SINE    AluSz   Alu-SINE     intron  C21orf58<br>
+chr21   47741150        A       0       28      36.57   [25, 0, 3, 0]   AG      0.11    24      31.54   [24, 0, 0, 0]   -       0.00    SINE    AluSx4  Alu-SINE     intron  C21orf58<br>
+chr21   47741221        A       0       49      36.33   [44, 0, 5, 0]   AG      0.10    40      29.50   [40, 0, 0, 0]   -       0.00    SINE    AluSx4  Alu-SINE     intron  C21orf58</p>
+<h2 class="mume-header" id="contact">Contact</h2>
+
+<ul>
+<li>Ernesto Picardi: ernesto.picardi at gmail dot com</li>
+</ul>
+
+      </div>
+      
+      
+    </body>
+    
+    
+    
+    
+    
+    
+    
+  </html>
