@@ -663,8 +663,9 @@ if len(gbamfile)==0:
 else:
 	for i in dgbamfile:
 		idxinfo=[l for l in pysam.idxstats(i).split('\n') if l != '']
-		idxinfo=pysam.idxstats(i)
+		#idxinfo=pysam.idxstats(i)
 		for j in idxinfo:
+			if j=='': continue
 			l=(j.strip()).split('\t')
 			if l[0]=='*': continue
 			if int(l[2])+int(l[3]) > 0: dgdic[l[0]]=i
@@ -874,6 +875,7 @@ def exploreBAM(myinput):
 					else: sequp=(fasta.fetch(chr,((pileupcolumn.pos+1)-ghomo)-1,(pileupcolumn.pos+1)-1)).upper()
 					seqdw=(fasta.fetch(chr,pileupcolumn.pos+1,(pileupcolumn.pos+1)+ghomo)).upper()
 				for pileupread in pileupcolumn.pileups: # per ogni base dell'allineamento multiplo
+					if not isinstance(pileupread.query_position, (int, long)): continue
 					gs,gq,gt,gqq=pileupread.alignment.seq[pileupread.query_position].upper(),ord(pileupread.alignment.qual[pileupread.query_position])-gQVAL,'*',pileupread.alignment.qual[pileupread.query_position]
 					# multiple hits
 					if gexh and pileupread.alignment.is_secondary: continue
@@ -959,6 +961,7 @@ def exploreBAM(myinput):
 				else: sequp=(fasta.fetch(chr,((pileupcolumn.pos+1)-homo)-1,(pileupcolumn.pos+1)-1)).upper()
 				seqdw=(fasta.fetch(chr,pileupcolumn.pos+1,(pileupcolumn.pos+1)+homo)).upper()
 			for pileupread in pileupcolumn.pileups: # per ogni base dell'allineamento multiplo
+				if not isinstance(pileupread.query_position, (int, long)): continue
 				s,q,t,qq=pileupread.alignment.seq[pileupread.query_position].upper(),ord(pileupread.alignment.qual[pileupread.query_position])-QVAL,'*',pileupread.alignment.qual[pileupread.query_position]
 				# escludi posizioni introniche nei pressi di splice sites
 				if exss and di.has_key(pileupcolumn.pos+1): continue
