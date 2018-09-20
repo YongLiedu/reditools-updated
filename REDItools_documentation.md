@@ -182,18 +182,16 @@ TAB files are simple textual files with at least three tabulated columns includi
 * coordinate of the position (1-based)
 * strand (+ or -). You can also indicate strand by 0 (strand -), 1 (strand +) or 2 (+ and - or unknown)
 
-==============  ==========  ======
-genomic region  coordinate  strand
-==============  ==========  ======
-chr21           10205589    \-
-chr21           10205629    \-
-chr21           15411496    \+
-chr21           15412990    \+
-chr21           15414553    \+
-chr21           15415901    \+
-chr21           15417667    \+
-chr21           15423330    \+
-==============  ==========  ======
+| genomic region | coordinate | strand |
+| :------------: | :--------: | :----: |
+| chr21          | 10205589   | \-     |
+| chr21          | 10205629   | \-     |
+| chr21          | 15411496   | \+     |
+| chr21          | 15412990   | \+     |
+| chr21          | 15414553   | \+     |
+| chr21          | 15415901   | \+     |
+| chr21          | 15417667   | \+     |
+| chr21          | 15423330   | \+     |
 
 TAB files must be coordinate sorted. In unix/linux environment they can be sorted by the sort command:
 ```bash
@@ -208,20 +206,18 @@ SpliceSites files are simple textual file including 5 columns separated by space
 * splice site type, A for acceptor and D for donor
 * strand (+ or -)
 
-==============  ==========  =====   ====  ======
-genomic region  start       end     type  strand
-==============  ==========  =====   ====  ======
-chr1            13224       13225   A     \+
-chr1            12227       12228   D     \+
-chr1            12594       12595   A     \+
-chr1            12721       12722   D     \+
-chr1            13402       13403   A     \+
-chr1            13655       13656   D     \+
-chr1            29320       29321   D     \-
-chr1            24891       24892   A     \-
-chr1            24737       24738   D     \-
-chr1            18379       18380   A     \-
-==============  ==========  =====   ====  ======
+| genomic region | start   | end   |  type | strand |
+| :------------: | :-----: | :---: |  :--: | :----: |
+| chr1           | 13224   | 13225 |  A    | \+     |
+| chr1           | 12227   | 12228 |  D    | \+     |
+| chr1           | 12594   | 12595 |  A    | \+     |
+| chr1           | 12721   | 12722 |  D    | \+     |
+| chr1           | 13402   | 13403 |  A    | \+     |
+| chr1           | 13655   | 13656 |  D    | \+     |
+| chr1           | 29320   | 29321 |  D    | \-     |
+| chr1           | 24891   | 24892 |  A    | \-     |
+| chr1           | 24737   | 24738 |  D    | \-     |
+| chr1           | 18379   | 18380 |  A    | \-     |
 
 SpliceSites files can be obtained starting from UCSC annotations in psl format and using
 the perl script psl_splicesites included in the [GMAP/GSNAP](http://research-pub.gene.com/gmap/) package:
@@ -230,15 +226,15 @@ the perl script psl_splicesites included in the [GMAP/GSNAP](http://research-pub
 ```
 The format of mysplicesites is:
 
- >NM_005236.exon11/11 chr16:14041470..14041471 acceptor 2778
- >NM_005235.exon1/28 chr2:213403173..213403172 donor 413544
- >NM_005235.exon2/28 chr2:212989629..212989628 acceptor 413544
- >NM_005235.exon2/28 chr2:212989477..212989476 donor 177135
- >NM_005235.exon3/28 chr2:212812342..212812341 acceptor 177135
- >NM_005235.exon3/28 chr2:212812155..212812154 donor 159270
- >NM_005235.exon4/28 chr2:212652885..212652884 acceptor 159270
- >NM_005235.exon4/28 chr2:212652750..212652749 donor 37320
- >NM_005235.exon5/28 chr2:212615430..212615429 acceptor 37320
+ >NM_005236.exon11/11 chr16:14041470..14041471 acceptor 2778<br>
+ >NM_005235.exon1/28 chr2:213403173..213403172 donor 413544<br>
+ >NM_005235.exon2/28 chr2:212989629..212989628 acceptor 413544<br>
+ >NM_005235.exon2/28 chr2:212989477..212989476 donor 177135<br>
+ >NM_005235.exon3/28 chr2:212812342..212812341 acceptor 177135<br>
+ >NM_005235.exon3/28 chr2:212812155..212812154 donor 159270<br>
+ >NM_005235.exon4/28 chr2:212652885..212652884 acceptor 159270<br>
+ >NM_005235.exon4/28 chr2:212652750..212652749 donor 37320<br>
+ >NM_005235.exon5/28 chr2:212615430..212615429 acceptor 37320<br>
 
 Then, the following awk/gawk command line can be used to get the final SpliceSite file:
 ```bash
@@ -257,22 +253,20 @@ Then, the following awk/gawk command line can be used to get the final SpliceSit
 ## Output files
 REDItools print out results in simple textual tables:
 
-======  ========  =========  ======  ============  =====  ==================  =======  =========
-Region  Position  Reference  Strand  Coverage-q25  MeanQ  BaseCount[A,C,G,T]  AllSubs  Frequency
-======  ========  =========  ======  ============  =====  ==================  =======  =========
-chr21   15412990  A          1       18            37.22   [3, 0, 15, 0]      AG       0.83
-chr21   15415901  A          1       13            37.15   [2, 0, 11, 0]      AG       0.85
-chr21   15423330  A          1       11            38.27   [4, 0, 7, 0]       AG       0.64
-chr21   15425640  A          1       8             36.12   [0, 0, 8, 0]       AG       1.00
-chr21   15456434  T          1       90            34.96   [0, 6, 1, 83]      TC TG    0.07
-chr21   15461406  A          1       83            37.27   [73, 0, 10, 0]     AG       0.12
-chr21   15461417  A          1       90            36.26   [72, 0, 18, 0]     AG       0.20
-chr21   15461444  A          1       64            37.22   [26, 0, 38, 0]     AG       0.59
-chr21   15461479  A          1       70            36.96   [66, 0, 4, 0]      AG       0.06
-chr21   15461486  A          1       68            37.06   [61, 0, 7, 0]      AG       0.10
-chr21   15461503  A          1       76            37.26   [69, 0, 7, 0]      AG       0.09
-chr21   15461511  A          1       81            37.68   [55, 0, 26, 0]     AG       0.32
-======  ========  =========  ======  ============  =====  ==================  =======  =========
+| Region | Position | Reference | Strand | Coverage-q25 | MeanQ | BaseCount[A,C,G,T] | AllSubs | Frequency |
+| ------ | -------- | --------- | ------ | ------------ | ----- | ------------------ | ------- | --------- |
+| chr21  | 15412990 | A         | 1      | 18           | 37.22 |  [3, 0, 15, 0]     | AG      | 0.83      |
+| chr21  | 15415901 | A         | 1      | 13           | 37.15 |  [2, 0, 11, 0]     | AG      | 0.85      |
+| chr21  | 15423330 | A         | 1      | 11           | 38.27 |  [4, 0, 7, 0]      | AG      | 0.64      |
+| chr21  | 15425640 | A         | 1      | 8            | 36.12 |  [0, 0, 8, 0]      | AG      | 1.00      |
+| chr21  | 15456434 | T         | 1      | 90           | 34.96 |  [0, 6, 1, 83]     | TC TG   | 0.07      |
+| chr21  | 15461406 | A         | 1      | 83           | 37.27 |  [73, 0, 10, 0]    | AG      | 0.12      |
+| chr21  | 15461417 | A         | 1      | 90           | 36.26 |  [72, 0, 18, 0]    | AG      | 0.20      |
+| chr21  | 15461444 | A         | 1      | 64           | 37.22 |  [26, 0, 38, 0]    | AG      | 0.59      |
+| chr21  | 15461479 | A         | 1      | 70           | 36.96 |  [66, 0, 4, 0]     | AG      | 0.06      |
+| chr21  | 15461486 | A         | 1      | 68           | 37.06 |  [61, 0, 7, 0]     | AG      | 0.10      |
+| chr21  | 15461503 | A         | 1      | 76           | 37.26 |  [69, 0, 7, 0]     | AG      | 0.09      |
+| chr21  | 15461511 | A         | 1      | 81           | 37.68 |  [55, 0, 26, 0]    | AG      | 0.32      |
 
 where:
  * Region: is the genomic region according to reference
@@ -308,58 +302,59 @@ taking into account the combined information from RNA-Seq and DNA-Seq data in BA
 To look at potential RNA editing candidates, RNA-Seq data alone can be used.
 
 Options:
+
 |   option   |   description  |
 | :--------: | :------------- |
-| -i	|	RNA-Seq BAM file
-| -j	|	DNA-Seq BAM files separated by comma or folder containing BAM files. **Note** that each chromosome/region must be present in a single BAM file only.
-| -I	|	Sort input RNA-Seq BAM file
-| -J	|	Sort input DNA-Seq BAM file
-| -f	|	Reference file in fasta format. **Note** that chromosome/region names in the reference must match chromosome/region names in BAMs files.
-| -C	|	Base interval to explore [100000]. It indicates how many bases have to be loaded during the run.
-| -k	|	List of chromosomes to skip separated by comma or file (each line must contain a chromosome/region name).
-| -t	|	Number of threads [1]. It indicates how many processes should be launched. Each process will work on an individual chromosome/region.
-| -o	|	Output folder [rediFolder_XXXX] in which all results will be stored. XXXX is a random number generated at each run.
-| -F	|	Internal folder name [null] is the main folder containing output tables.
-| -M	|	Save a list of columns with quality scores. It produces at most two files in the pileup-like format.
-| -c	|	Minimum read coverage (dna,rna) [10,10]
-| -Q	|	Fastq offset value (dna,rna) [33,33]. For Illumina fastq 1.3+ 64 should be used.
-| -q	|	Minimum quality score (dna,rna) [25,25]
-| -m	|	Minimum mapping quality score (dna,rna) [25,25]
-| -O	|	Minimum homoplymeric length (dna,rna) [5,5]
-| -s	|	Infer strand (for strand oriented reads) [1]. It indicates which read is in line with RNA. Available values are: 1:read1 as RNA,read2 not as RNA; 2:read1 not as RNA,read2 as RNA; 12:read1 as RNA,read2 as RNA; 0:read1 not as RNA,read2 not as RNA.
-| -g	|	Strand inference type 1:maxValue 2:useConfidence [1]; maxValue: the most prominent strand count will be used; useConfidence: strand is assigned if over a prefixed frequency confidence (-x option)
-| -x	|	Strand confidence [0.70]
-| -S	|	Strand correction. Once the strand has been inferred, only bases according to this strand will be selected.
-| -G	|	Infer strand by GFF annotation (must be GFF and sorted, otherwise use -X). Sorting requires grep and sort unix executables.
-| -K	|	GFF File with positions to exclude (must be GFF and sorted, otherwise use -X). Sorting requires grep and sort unix executables.
-| -T	|	Work only on given GFF positions (must be GFF and sorted, otherwise use -X). Sorting requires grep and sort unix executables.
-| -X	|	Sort annotation files. It requires grep and sort unix executables.
-| -e	|	Exclude multi hits in RNA-Seq
-| -E	|	Exclude multi hits in DNA-Seq
-| -d	|	Exclude duplicates in RNA-Seq
-| -D	|	Exclude duplicates in DNA-Seq
-| -p	|	Use paired concardant reads only in RNA-Seq
-| -P	|	Use paired concardant reads only in DNA-Seq
-| -u	|	Consider mapping quality in RNA-Seq
-| -U	|	Consider mapping quality in DNA-Seq
-| -a	|	Trim x bases up and y bases down per read [0-0] in RNA-Seq
-| -A	|	Trim x bases up and y bases down per read [0-0] in DNA-Seq
-| -b	|	Blat folder for correction in RNA-Seq
-| -B	|	Blat folder for correction in DNA-Seq
-| -l	|	Remove substitutions in homopolymeric regions in RNA-Seq
-| -L	|	Remove substitutions in homopolymeric regions in DNA-Seq
-| -v	|	Minimum number of reads supporting the variation [3] for RNA-Seq
-| -n	|	Minimum editing frequency [0.1] for RNA-Seq
-| -N	|	Minimum variation frequency [0.1] for DNA-Seq
-| -z	|	Exclude positions with multiple changes in RNA-Seq
-| -Z	|	Exclude positions with multiple changes in DNA-Seq
-| -W	|	Select RNA-Seq positions with defined changes (separated by comma ex: AG,TC) [default all]
-| -R	|	Exclude invariant RNA-Seq positions
-| -V	|	Exclude sites not supported by DNA-Seq
-| -w	|	File containing splice sites annotations (SpliceSite file format see above for details)
-| -r	|	Num. of bases near splice sites to explore [4]
-| --gzip |	Gzip output files
-| -h, --help	|	Print the help
+| -i	|	RNA-Seq BAM file |
+| -j	|	DNA-Seq BAM files separated by comma or folder containing BAM files. **Note** that each chromosome/region must be present in a single BAM file only. |
+| -I	|	Sort input RNA-Seq BAM file |
+| -J	|	Sort input DNA-Seq BAM file |
+| -f	|	Reference file in fasta format. **Note** that chromosome/region names in the reference must match chromosome/region names in BAMs files. |
+| -C	|	Base interval to explore [100000]. It indicates how many bases have to be loaded during the run. |
+| -k	|	List of chromosomes to skip separated by comma or file (each line must contain a chromosome/region name). |
+| -t	|	Number of threads [1]. It indicates how many processes should be launched. Each process will work on an individual chromosome/region. |
+| -o	|	Output folder [rediFolder_XXXX] in which all results will be stored. XXXX is a random number generated at each run. |
+| -F	|	Internal folder name [null] is the main folder containing output tables. |
+| -M	|	Save a list of columns with quality scores. It produces at most two files in the pileup-like format. |
+| -c	|	Minimum read coverage (dna,rna) [10,10] |
+| -Q	|	Fastq offset value (dna,rna) [33,33]. For Illumina fastq 1.3+ 64 should be used. |
+| -q	|	Minimum quality score (dna,rna) [25,25] |
+| -m	|	Minimum mapping quality score (dna,rna) [25,25] |
+| -O	|	Minimum homopolymeric length (dna,rna) [5,5] |
+| -s	|	Infer strand (for strand oriented reads) [1]. It indicates which read is in line with RNA. Available values are: 1:read1 as RNA,read2 not as RNA; 2:read1 not as RNA,read2 as RNA; 12:read1 as RNA,read2 as RNA; 0:read1 not as RNA,read2 not as RNA. |
+| -g	|	Strand inference type 1:maxValue 2:useConfidence [1]; maxValue: the most prominent strand count will be used; useConfidence: strand is assigned if over a prefixed frequency confidence (-x option) |
+| -x	|	Strand confidence [0.70] |
+| -S	|	Strand correction. Once the strand has been inferred, only bases according to this strand will be selected. |
+| -G	|	Infer strand by GFF annotation (must be GFF and sorted, otherwise use -X). Sorting requires grep and sort unix executables. |
+| -K	|	GFF File with positions to exclude (must be GFF and sorted, otherwise use -X). Sorting requires grep and sort unix executables. |
+| -T	|	Work only on given GFF positions (must be GFF and sorted, otherwise use -X). Sorting requires grep and sort unix executables. |
+| -X	|	Sort annotation files. It requires grep and sort unix executables. |
+| -e	|	Exclude multi hits in RNA-Seq |
+| -E	|	Exclude multi hits in DNA-Seq |
+| -d	|	Exclude duplicates in RNA-Seq |
+| -D	|	Exclude duplicates in DNA-Seq |
+| -p	|	Use paired concardant reads only in RNA-Seq |
+| -P	|	Use paired concardant reads only in DNA-Seq |
+| -u	|	Consider mapping quality in RNA-Seq |
+| -U	|	Consider mapping quality in DNA-Seq |
+| -a	|	Trim x bases up and y bases down per read [0-0] in RNA-Seq |
+| -A	|	Trim x bases up and y bases down per read [0-0] in DNA-Seq |
+| -b	|	Blat folder for correction in RNA-Seq |
+| -B	|	Blat folder for correction in DNA-Seq |
+| -l	|	Remove substitutions in homopolymeric regions in RNA-Seq |
+| -L	|	Remove substitutions in homopolymeric regions in DNA-Seq |
+| -v	|	Minimum number of reads supporting the variation [3] for RNA-Seq |
+| -n	|	Minimum editing frequency [0.1] for RNA-Seq |
+| -N	|	Minimum variation frequency [0.1] for DNA-Seq |
+| -z	|	Exclude positions with multiple changes in RNA-Seq |
+| -Z	|	Exclude positions with multiple changes in DNA-Seq |
+| -W	|	Select RNA-Seq positions with defined changes (separated by comma ex: AG,TC) [default all] |
+| -R	|	Exclude invariant RNA-Seq positions |
+| -V	|	Exclude sites not supported by DNA-Seq |
+| -w	|	File containing splice sites annotations (SpliceSite file format see above for details) |
+| -r	|	Num. of bases near splice sites to explore [4] |
+| --gzip |	Gzip output files |
+| -h, --help	|	Print the help |
 
 Example:
 ```bash
@@ -372,42 +367,43 @@ generated from supplementary materials of a variety of publications. Known RNA e
 have to be stored in TAB files (see above for details).
 
 Options:
+
 |   option   |   description  |
 | :--------: | :------------- |
-| -i	|	BAM file
-| -I	|	Sort input BAM file
-| -f	|	Reference in fasta file
-| -l	|	List of known RNA editing events
-| -C	|	Base interval to explore [100000]
-| -k	|	List of chromosomes to skip separated by comma or file
-| -t	|	Number of threads [1]
-| -o	|	Output folder [rediFolder_XXXX] in which all results will be stored. XXXX is a random number generated at each run.
-| -F	|	Internal folder name [null] is the main folder containing output tables.
-| -c	|	Min. read coverage [10]
-| -Q	|	Fastq offset value [33]
-| -q	|	Minimum quality score [25]
-| -m	|	Minimum mapping quality score [25]
-| -O	|	Minimum homoplymeric length [5]
-| -s	|	Infer strand (for strand oriented reads) [1]. It indicates which read is in line with RNA. Available values are: 1:read1 as RNA,read2 not as RNA; 2:read1 not as RNA,read2 as RNA; 12:read1 as RNA,read2 as RNA; 0:read1 not as RNA,read2 not as RNA.
-| -g	|	Strand inference type 1:maxValue 2:useConfidence [1]; maxValue: the most prominent strand count will be used; useConfidence: strand is assigned if over a prefixed frequency confidence (-x option)
-| -x	|	Strand confidence [0.70]
-| -S	|	Strand correction. Once the strand has been inferred, only bases according to this strand will be selected.
-| -G	|	Infer strand by GFF annotation (must be sorted, otherwise use -X). Sorting requires grep and sort unix executables.
-| -X	|	Sort annotation files. It requires grep and sort unix executables.
-| -K	|	File with positions to exclude (chromosome_name coordinate)
-| -e	|	Exclude multi hits
-| -d	|	Exclude duplicates
-| -p	|	Use paired concardant reads only
-| -u	|	Consider mapping quality
-| -T	|	Trim x bases up and y bases down per read [0-0]
-| -B	|	Blat folder for correction
-| -U	|	Remove substitutions in homopolymeric regions
-| -v	|	Minimum number of reads supporting the variation [3]
-| -n	|	Minimum editing frequency [0.1]
-| -E	|	Exclude positions with multiple changes
-| -P	|	File containing splice sites annotations (SpliceSite file format see above for details)
-| -r	|	Num. of bases near splice sites to explore [4]
-| -h	|	Print the help
+| -i	|	BAM file |
+| -I	|	Sort input BAM file |
+| -f	|	Reference in fasta file |
+| -l	|	List of known RNA editing events |
+| -C	|	Base interval to explore [100000] |
+| -k	|	List of chromosomes to skip separated by comma or file |
+| -t	|	Number of threads [1] |
+| -o	|	Output folder [rediFolder_XXXX] in which all results will be stored. XXXX is a random number generated at each run. |
+| -F	|	Internal folder name [null] is the main folder containing output tables. |
+| -c	|	Min. read coverage [10] |
+| -Q	|	Fastq offset value [33] |
+| -q	|	Minimum quality score [25] |
+| -m	|	Minimum mapping quality score [25] |
+| -O	|	Minimum homopolymeric length [5] |
+| -s	|	Infer strand (for strand oriented reads) [1]. It indicates which read is in line with RNA. Available values are: 1:read1 as RNA,read2 not as RNA; 2:read1 not as RNA,read2 as RNA; 12:read1 as RNA,read2 as RNA; 0:read1 not as RNA,read2 not as RNA. |
+| -g	|	Strand inference type 1:maxValue 2:useConfidence [1]; maxValue: the most prominent strand count will be used; useConfidence: strand is assigned if over a prefixed frequency confidence (-x option) |
+| -x	|	Strand confidence [0.70] |
+| -S	|	Strand correction. Once the strand has been inferred, only bases according to this strand will be selected. |
+| -G	|	Infer strand by GFF annotation (must be sorted, otherwise use -X). Sorting requires grep and sort unix executables. |
+| -X	|	Sort annotation files. It requires grep and sort unix executables. |
+| -K	|	File with positions to exclude (chromosome_name coordinate) |
+| -e	|	Exclude multi hits |
+| -d	|	Exclude duplicates |
+| -p	|	Use paired concardant reads only |
+| -u	|	Consider mapping quality |
+| -T	|	Trim x bases up and y bases down per read [0-0] |
+| -B	|	Blat folder for correction |
+| -U	|	Remove substitutions in homopolymeric regions |
+| -v	|	Minimum number of reads supporting the variation [3] |
+| -n	|	Minimum editing frequency [0.1] |
+| -E	|	Exclude positions with multiple changes |
+| -P	|	File containing splice sites annotations (SpliceSite file format see above for details) |
+| -r	|	Num. of bases near splice sites to explore [4] |
+| -h	|	Print the help |
 
 Example:
 ```bash
@@ -419,46 +415,47 @@ data alone and without any a priori knowledge about genome information and biolo
 of RNA editing phenomenon.
 
 Options:
+
 |   option   |   description  |
 | :--------: | :------------- |
-| -i	|	BAM file
-| -I	|	Sort input BAM file
-| -f	|	Reference in fasta file
-| -k	|	List of chromosomes to skip separated by comma or file
-| -t	|	Number of threads [1]
-| -o	|	Output folder [rediFolder_XXXX] in which all results will be stored. XXXX is a random number generated at each run.
-| -F	|	Internal folder name [null] is the main folder containing output tables.
-| -b	|	Use input distribution file
-| -a	|	Fisher Tail [l, r, t] [default l] [l=left_tail, r=right_tail, t=two_tail]
-| -c	|	Min. read coverage [10]
-| -Q	|	Fastq offset value [33]
-| -q	|	Min. quality score [25]
-| -m	|	Min. mapping quality score [25]
-| -O	|	Min. homoplymeric length [5]
-| -s	|	Infer strand (for strand oriented reads) [1]. It indicates which read is in line with RNA. Available values are: 1:read1 as RNA,read2 not as RNA; 2:read1 not as RNA,read2 as RNA; 12:read1 as RNA,read2 as RNA; 0:read1 not as RNA,read2 not as RNA.
-| -g	|	Strand inference type 1:maxValue 2:useConfidence [1]; maxValue: the most prominent strand count will be used; useConfidence: strand is assigned if over a prefixed frequency confidence (-x option)
-| -x	|	Strand confidence [0.70]
-| -S	|	Strand correction. Once the strand has been inferred, only bases according to this strand will be selected.
-| -G	|	Infer strand by gff annotation (must be sorted, otherwise use -X)
-| -X	|	Sort annotation files
-| -K	|	File with positions to exclude
-| -e	|	Exclude multi hits
-| -d	|	Exclude duplicates
-| -l	|	Select significant sites
-| -V	|	Significant value [0.05]
-| -w	|	Statistical test [BH, BO, NO] [default BH] [BH=Benjamini, BO=Bonferroni, NO=No Correction]
-| -U	|	Use specific substitutions separated by comma [example: AG,TC]
-| -p	|	Use paired concardant reads only
-| -u	|	Consider mapping quality
-| -T	|	Trim x bases up and y bases down per read [0-0]
-| -B	|	Blat folder for correction
-| -W	|	Remove substitutions in homopolymeric regions
-| -v	|	Minimum number of reads supporting the variation [3]
-| -n	|	Minimum editing frequency [0.1]
-| -E	|	Exclude positions with multiple changes
-| -P	|	File containing splice sites annotations (SpliceSite file format see above for details)
-| -r	|	Number of bases near splice sites to explore [4]
-| -h	|	Print the help
+| -i	|	BAM file |
+| -I	|	Sort input BAM file |
+| -f	|	Reference in fasta file |
+| -k	|	List of chromosomes to skip separated by comma or file |
+| -t	|	Number of threads [1] |
+| -o	|	Output folder [rediFolder_XXXX] in which all results will be stored. XXXX is a random number generated at each run. |
+| -F	|	Internal folder name [null] is the main folder containing output tables. |
+| -b	|	Use input distribution file |
+| -a	|	Fisher Tail [l, r, t] [default l] [l=left_tail, r=right_tail, t=two_tail] |
+| -c	|	Min. read coverage [10] |
+| -Q	|	Fastq offset value [33] |
+| -q	|	Min. quality score [25] |
+| -m	|	Min. mapping quality score [25] |
+| -O	|	Min. homopolymeric length [5] |
+| -s	|	Infer strand (for strand oriented reads) [1]. It indicates which read is in line with RNA. Available values are: 1:read1 as RNA,read2 not as RNA; 2:read1 not as RNA,read2 as RNA; 12:read1 as RNA,read2 as RNA; 0:read1 not as RNA,read2 not as RNA. |
+| -g	|	Strand inference type 1:maxValue 2:useConfidence [1]; maxValue: the most prominent strand count will be used; useConfidence: strand is assigned if over a prefixed frequency confidence (-x option) |
+| -x	|	Strand confidence [0.70] |
+| -S	|	Strand correction. Once the strand has been inferred, only bases according to this strand will be selected. |
+| -G	|	Infer strand by gff annotation (must be sorted, otherwise use -X) |
+| -X	|	Sort annotation files |
+| -K	|	File with positions to exclude |
+| -e	|	Exclude multi hits |
+| -d	|	Exclude duplicates |
+| -l	|	Select significant sites |
+| -V	|	Significant value [0.05] |
+| -w	|	Statistical test [BH, BO, NO] [default BH] [BH=Benjamini, BO=Bonferroni, NO=No Correction] |
+| -U	|	Use specific substitutions separated by comma [example: AG,TC] |
+| -p	|	Use paired concardant reads only |
+| -u	|	Consider mapping quality |
+| -T	|	Trim x bases up and y bases down per read [0-0] |
+| -B	|	Blat folder for correction |
+| -W	|	Remove substitutions in homopolymeric regions |
+| -v	|	Minimum number of reads supporting the variation [3] |
+| -n	|	Minimum editing frequency [0.1] |
+| -E	|	Exclude positions with multiple changes |
+| -P	|	File containing splice sites annotations (SpliceSite file format see above for details) |
+| -r	|	Number of bases near splice sites to explore [4] |
+| -h	|	Print the help |
 
 Example:
 ```bash
@@ -470,22 +467,23 @@ REDItoolBlatCorrection.py requires gfServer and gfClient programs from [Blat pac
 Reference fasta file can be converted in .2bit format using the utility [faToTwoBit](http://hgdownload.cse.ucsc.edu/admin/exe/).
 
 Options:
+
 |   option   |   description  |
 | :--------: | :------------- |
-|   -i	|	BAM file
-|   -I	|	Sort input BAM file
-|   -f	|	Genomic fasta file
-|   -F	|	Genomic fasta file in 2bit format for gfServer
-|   -t	|	Num. of working threads [1]
-|   -o	|	Output Folder [BlatCorrection_XXXX]
-|   -k	|	List of chromosomes to skip separated by comma or file
-|   -r	|	Regions in GFF in which Blat will be launched
-|   -s	|	Sort GFF (if unsorted). It requires grep and sort unix executables.
-|   -q	|	Minimum quality score [25]
-|   -Q	|	Fastq offset value [33]
-|   -V	|	Verify if gfServer is alive
-|   -T	|	Stop gfServer at script end
-|   -h	|	Print the help
+|   -i	|	BAM file |
+|   -I	|	Sort input BAM file |
+|   -f	|	Genomic fasta file |
+|   -F	|	Genomic fasta file in 2bit format for gfServer |
+|   -t	|	Num. of working threads [1] |
+|   -o	|	Output Folder [BlatCorrection_XXXX] |
+|   -k	|	List of chromosomes to skip separated by comma or file |
+|   -r	|	Regions in GFF in which Blat will be launched |
+|   -s	|	Sort GFF (if unsorted). It requires grep and sort unix executables. |
+|   -q	|	Minimum quality score [25] |
+|   -Q	|	Fastq offset value [33] |
+|   -V	|	Verify if gfServer is alive |
+|   -T	|	Stop gfServer at script end |
+|   -h	|	Print the help |
 
 Example:
 ```bash
@@ -521,17 +519,18 @@ Filtered out positions will be marked with "#" at the beginning of each line. To
 option -E should be used. Features are the same as indicated in the third field of GTF annotation file.
 
 Options:
+
 |   option   |   description  |
 | :--------: | :------------- |
-|  -i        |      Table file
-|  -f        |      Sorted file with positions to filter in (GTF sorted file as above)
-|  -s        |      Sorted file with positions to filter out (GTF sorted file as above)
-|  -F        |      Features to filter in (separated by comma)
-|  -S        |      Features to filter out (separated by comma)
-|  -E        |      Exclude positions filtered out
-|  -o        |      Save filtered lines to a file [stdout]
-|  -p        |      Print simple statistics
-|  -h        |      Print the help
+|  -i        |      Table file |
+|  -f        |      Sorted file with positions to filter in (GTF sorted file as above) |
+|  -s        |      Sorted file with positions to filter out (GTF sorted file as above) |
+|  -F        |      Features to filter in (separated by comma) |
+|  -S        |      Features to filter out (separated by comma) |
+|  -E        |      Exclude positions filtered out |
+|  -o        |      Save filtered lines to a file [stdout] |
+|  -p        |      Print simple statistics |
+|  -h        |      Print the help |
 
 Example:
 ```bash
@@ -542,18 +541,19 @@ AnnotateTable.py annotates individual positions of a table file according to ann
 It adds from 1 to 3 additional columns according to -c option.
 
 Options:
+
 |   option   |   description  |
 | :--------: | :------------- |
-| -a	|	Sorted Annotation file in GTF format
-| -i	|	Annotate a file of positions [column1=region, column2=coordinate (1 based)] or a single position [region:coordinate (1 based)]
-| -s	|	Strand column in annotation file [4]
-| -u	|	Not use table strand info (fix it to 2)
-| -c	|	Add columns separated by comma (feature:1, gene_id:2, transcript_id:3) [1,2]
-| -n	|	Column name [Col]
-| -S	|	Correct strand by annotation
-| -C	|	Columns with base distribution [7,12] (in combination with -S)
-| -o	|	Save lines to a file
-| -h	|	Print the help
+| -a	|	Sorted Annotation file in GTF format |
+| -i	|	Annotate a file of positions [column1=region, column2=coordinate (1 based)] or a single position [region:coordinate (1 based)] |
+| -s	|	Strand column in annotation file [4] |
+| -u	|	Not use table strand info (fix it to 2) |
+| -c	|	Add columns separated by comma (feature:1, gene_id:2, transcript_id:3) [1,2] |
+| -n	|	Column name [Col] |
+| -S	|	Correct strand by annotation |
+| -C	|	Columns with base distribution [7,12] (in combination with -S) |
+| -o	|	Save lines to a file |
+| -h	|	Print the help |
 
 Example:
 ```bash
@@ -563,18 +563,19 @@ Example:
 SearchInTable.py looks for individual positions in a list or table of positions.
 
 Options:
+
 |   option   |   description  |
 | :--------: | :------------- |
-|  -i        |      Sorted table file (first col=reference; second col=coordinate 1 based) or tabix indexed table (ending with .gz) (TAB format is required)
-|  -j        |      Query (file or single positions as chr21:123456)
-|  -C        |      Sequence name column [1]
-|  -S        |      Start column [2]
-|  -E        |      End column; can be identical to '-S' [2]
-|  -p        |      Print position header (like a fasta header >chr21:123456)
-|  -n        |      Print "Not found"
-|  -s        |      Print simple statistics on standard error
-|  -o        |      Save found/not found positions on file
-|  -h        |      Print this help
+|  -i        |      Sorted table file (first col=reference; second col=coordinate 1 based) or tabix indexed table (ending with .gz) (TAB format is required) |
+|  -j        |      Query (file or single positions as chr21:123456) |
+|  -C        |      Sequence name column [1] |
+|  -S        |      Start column [2] |
+|  -E        |      End column; can be identical to '-S' [2] |
+|  -p        |      Print position header (like a fasta header >chr21:123456) |
+|  -n        |      Print "Not found" |
+|  -s        |      Print simple statistics on standard error |
+|  -o        |      Save found/not found positions on file |
+|  -h        |      Print this help |
 
 Example:
 ```bash
@@ -584,23 +585,24 @@ Example:
 selectPositions.py can filter an output REDItool table according to different criteria.
 
 Options:
+
 |   option   |   description  |
 | :--------: | :------------- |
-| -i         |     Table file from REDItools
-| -d         |     Base distribution column for DNA-Seq (-1: no DNA-Seq) [-1]
-| -c         |     Coverage RNA-Seq [5]
-| -C         |     Coverage DNA-Seq [5]
-| -v         |     Bases supporting RNA-Seq variation [1]
-| -V         |     Bases supporting DNA-Seq variation [0]
-| -s         |     Substitutions to select in RNA-Seq (separated by comma AG,CT) [all]
-| -f         |     Frequency of variation in RNA-Seq [0.1]
-| -F         |     Frequency of non-variation in DNA-Seq [0.95]
-| -e         |     Exclude multiple substitutions in RNA-Seq
-| -r         |     Exclude invariant sites in RNA-Seq
-| -R         |     Exclude variant sites in DNA-Seq #
-| -u         |     Use only positions supported by DNA-Seq
-| -o         |     Save selected positions on outTable_533864766
-| -h         |     Print this help
+| -i         |     Table file from REDItools |
+| -d         |     Base distribution column for DNA-Seq (-1: no DNA-Seq) [-1] |
+| -c         |     Coverage RNA-Seq [5] |
+| -C         |     Coverage DNA-Seq [5] |
+| -v         |     Bases supporting RNA-Seq variation [1] |
+| -V         |     Bases supporting DNA-Seq variation [0] |
+| -s         |     Substitutions to select in RNA-Seq (separated by comma AG,CT) [all] |
+| -f         |     Frequency of variation in RNA-Seq [0.1] |
+| -F         |     Frequency of non-variation in DNA-Seq [0.95] |
+| -e         |     Exclude multiple substitutions in RNA-Seq |
+| -r         |     Exclude invariant sites in RNA-Seq |
+| -R         |     Exclude variant sites in DNA-Seq # |
+| -u         |     Use only positions supported by DNA-Seq |
+| -o         |     Save selected positions on outTable_533864766 |
+| -h         |     Print this help |
 
 ### SortTable.py (new in version 1.0.3)
 SortTable.py is a facility to sort an input table according to genomic region and coordinates.
@@ -612,19 +614,20 @@ Optionally, an input table can be outputted as TAB-delimited. Please tune the -b
 your memory capability. Default value should work well for many computers.
 
 Options:
+
 |   option   |   description  |
 | :--------: | :------------- |
-| -i	|	Table file
-| -d	|	Delimiter character [\t] (default TAB)
-| -s	|	Sequence name column [1]
-| -c	|	Start column [4]
-| -e	|	End column (can be identical to -c) [5]
-| -m	|	Skip lines starting with [#]
-| -o	|	Sorted output file [sortedTable_%s]
-| -O	|	Output as TAB-delimited
-| -b	|	Buffer size (as number of lines) [32000]
-| -t	|	Temporary directory to use (multiple -t may be used)
-| -h	|	Print this help
+| -i	|	Table file |
+| -d	|	Delimiter character [\t] (default TAB) |
+| -s	|	Sequence name column [1] |
+| -c	|	Start column [4] |
+| -e	|	End column (can be identical to -c) [5] |
+| -m	|	Skip lines starting with [#] |
+| -o	|	Sorted output file [sortedTable_%s] |
+| -O	|	Output as TAB-delimited |
+| -b	|	Buffer size (as number of lines) [32000] |
+| -t	|	Temporary directory to use (multiple -t may be used) |
+| -h	|	Print this help |
 
 Example for input table with space-based columns:
 ```bash
@@ -637,19 +640,20 @@ memory capabilities in case of sorting. Tabix by default compresses the input ta
 a copy of the sorted and uncompressed table is needed, -u option should be used.
 
 Options:
+
 |   option   |   description  |
 | :--------: | :------------- |
-|  -i	|	TAB-delimited file
-|  -s	|	Sequence name column [1]
-|  -c	|	Start column [4]
-|  -e	|	End column (can be identical to -c) [5]
-|  -m	|	Skip lines starting with [#]
-|  -0	|	Zero based coordinates
-|  -S	|	Do not sort input file (sort by default)
-|  -b	|	Buffer size (as number of lines) [32000]
-|  -t	|	Temporary directory to use (multiple -t may be used)
-|  -u	|	Save an uncompressed GFF copy (add _copy suffix)
-|  -h	|	Print this help
+|  -i	|	TAB-delimited file |
+|  -s	|	Sequence name column [1] |
+|  -c	|	Start column [4] |
+|  -e	|	End column (can be identical to -c) [5] |
+|  -m	|	Skip lines starting with [#] |
+|  -0	|	Zero based coordinates |
+|  -S	|	Do not sort input file (sort by default) |
+|  -b	|	Buffer size (as number of lines) [32000] |
+|  -t	|	Temporary directory to use (multiple -t may be used) |
+|  -u	|	Save an uncompressed GFF copy (add _copy suffix) |
+|  -h	|	Print this help |
 
 Example for GFF file:
 ```bash
@@ -660,13 +664,14 @@ SortGFF.py is a facility to sort only GFF files and works as SortTable.py. Optio
 according to memory capabilities. Useful for users working on machines in which the sort program is not present.
 
 Options:
+
 |   option   |   description  |
 | :--------: | :------------- |
-|   -i	|	GFF file
-|   -o	|	Sorted output file [GFF_sorted_%s]
-|   -b	|	Buffer size (as number of lines) [32000]
-|   -t	|	Temporary directory to use (multiple -t may be used)
-|   -h	|	Print this help
+|   -i	|	GFF file |
+|   -o	|	Sorted output file [GFF_sorted_%s] |
+|   -b	|	Buffer size (as number of lines) [32000] |
+|   -t	|	Temporary directory to use (multiple -t may be used) |
+|   -h	|	Print this help |
 
 Example:
 ```bash
@@ -678,14 +683,15 @@ It works as tableToTabix.py but specific for GFF files. Use -u to store an uncom
 Sorting is activated by default.
 
 Options:
+
 |   option   |   description  |
 | :--------: | :------------- |
-|  -i	|	GFF file
-|  -S	|	Do not sort GFF (sort by default)
-|  -b	|	Buffer size (as number of lines) [32000]
-|  -t	|	Temporary directory to use (multiple -t may be used)
-|  -u	|	Save an uncompressed GFF copy (add _copy suffix)
-|  -h	|	Print this help
+|  -i	|	GFF file |
+|  -S	|	Do not sort GFF (sort by default) |
+|  -b	|	Buffer size (as number of lines) [32000] |
+|  -t	|	Temporary directory to use (multiple -t may be used) |
+|  -u	|	Save an uncompressed GFF copy (add _copy suffix) |
+|  -h	|	Print this help |
 
 Example:
 ```bash
@@ -696,15 +702,16 @@ TableToGFF.py is a facility to convert an output REDItool table to GFF in order 
 Optionally, it can sort and tabix the output GFF. Options -b and -T work if -s is in effect.
 
 Options:
+
 |   option   |   description  |
 | :--------: | :------------- |
-|  -i	|	Table file from REDItools
-|  -s	|	Sort output GFF
-|  -t	|	Tabix output GFF (requires Pysam module)
-|  -b	|	Buffer size (as number of lines) [32000] (requires -s)
-|  -T	|	Temporary directory (requires -s)
-|  -o	|	Outfile [outTable_%s.gff]
-|  -h	|	Print this help
+|  -i	|	Table file from REDItools |
+|  -s	|	Sort output GFF |
+|  -t	|	Tabix output GFF (requires Pysam module) |
+|  -b	|	Buffer size (as number of lines) [32000] (requires -s) |
+|  -T	|	Temporary directory (requires -s) |
+|  -o	|	Outfile [outTable_%s.gff] |
+|  -h	|	Print this help |
 
 Example:
 ```bash
@@ -783,17 +790,18 @@ Option -u is used to collect only positions supported by DNA-Seq. Option -e is u
 According to these criteria only 10 positions will be retained:
 
  more candidates.txt
- Region  Position        Reference       Strand  Coverage-q25    MeanQ   BaseCount[A,C,G,T]      AllSubs Frequency       gCoverage-q25   gMeanQ  gBaseCount[A,C,G,T]  gAllSubs        gFrequency
- chr21   47739131        A       0       20      34.60   [18, 0, 2, 0]   AG      0.10    30      30.40   [30, 0, 0, 0]   -       0.00
- chr21   47739578        A       0       14      38.50   [11, 0, 3, 0]   AG      0.21    26      30.27   [26, 0, 0, 0]   -       0.00
- chr21   47739644        A       0       18      36.61   [13, 0, 5, 0]   AG      0.28    23      30.22   [23, 0, 0, 0]   -       0.00
- chr21   47739647        A       0       16      36.12   [7, 0, 9, 0]    AG      0.56    18      30.67   [18, 0, 0, 0]   -       0.00
- chr21   47739724        A       0       8       37.00   [6, 0, 2, 0]    AG      0.25    30      30.10   [30, 0, 0, 0]   -       0.00
- chr21   47739725        A       0       8       37.75   [5, 0, 3, 0]    AG      0.38    30      29.93   [30, 0, 0, 0]   -       0.00
- chr21   47739764        A       0       6       37.33   [4, 0, 2, 0]    AG      0.33    19      30.37   [19, 0, 0, 0]   -       0.00
- chr21   47740295        A       0       10      34.00   [6, 0, 4, 0]    AG      0.40    30      29.77   [30, 0, 0, 0]   -       0.00
- chr21   47741150        A       0       28      36.57   [25, 0, 3, 0]   AG      0.11    24      31.54   [24, 0, 0, 0]   -       0.00
- chr21   47741221        A       0       49      36.33   [44, 0, 5, 0]   AG      0.10    40      29.50   [40, 0, 0, 0]   -       0.00
+
+ Region  Position        Reference       Strand  Coverage-q25    MeanQ   BaseCount[A,C,G,T]      AllSubs Frequency       gCoverage-q25   gMeanQ  gBaseCount[A,C,G,T]  gAllSubs        gFrequency<br>
+ chr21   47739131        A       0       20      34.60   [18, 0, 2, 0]   AG      0.10    30      30.40   [30, 0, 0, 0]   -       0.00<br>
+ chr21   47739578        A       0       14      38.50   [11, 0, 3, 0]   AG      0.21    26      30.27   [26, 0, 0, 0]   -       0.00<br>
+ chr21   47739644        A       0       18      36.61   [13, 0, 5, 0]   AG      0.28    23      30.22   [23, 0, 0, 0]   -       0.00<br>
+ chr21   47739647        A       0       16      36.12   [7, 0, 9, 0]    AG      0.56    18      30.67   [18, 0, 0, 0]   -       0.00<br>
+ chr21   47739724        A       0       8       37.00   [6, 0, 2, 0]    AG      0.25    30      30.10   [30, 0, 0, 0]   -       0.00<br>
+ chr21   47739725        A       0       8       37.75   [5, 0, 3, 0]    AG      0.38    30      29.93   [30, 0, 0, 0]   -       0.00<br>
+ chr21   47739764        A       0       6       37.33   [4, 0, 2, 0]    AG      0.33    19      30.37   [19, 0, 0, 0]   -       0.00<br>
+ chr21   47740295        A       0       10      34.00   [6, 0, 4, 0]    AG      0.40    30      29.77   [30, 0, 0, 0]   -       0.00<br>
+ chr21   47741150        A       0       28      36.57   [25, 0, 3, 0]   AG      0.11    24      31.54   [24, 0, 0, 0]   -       0.00<br>
+ chr21   47741221        A       0       49      36.33   [44, 0, 5, 0]   AG      0.10    40      29.50   [40, 0, 0, 0]   -       0.00<br>
 
 Now we can annotate these positions using the information in the Repeat Mask database to look at Alu sites:
 ```bash
@@ -802,18 +810,20 @@ Now we can annotate these positions using the information in the Repeat Mask dat
  Table saved on candidates.rmsk.txt
  Script time --> END: 06/02/2013 20:48:29
 ```
+
  more candidates.rmsk.txt
- Region  Position        Reference       Strand  Coverage-q25    MeanQ   BaseCount[A,C,G,T]      AllSubs Frequency       gCoverage-q25   gMeanQ  gBaseCount[A,C,G,T]  gAllSubs        gFrequency      RepMask_feat    RepMask_gid     RepMask_tid
- chr21   47739131        A       0       20      34.60   [18, 0, 2, 0]   AG      0.10    30      30.40   [30, 0, 0, 0]   -       0.00    -       -       -
- chr21   47739578        A       0       14      38.50   [11, 0, 3, 0]   AG      0.21    26      30.27   [26, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE
- chr21   47739644        A       0       18      36.61   [13, 0, 5, 0]   AG      0.28    23      30.22   [23, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE
- chr21   47739647        A       0       16      36.12   [7, 0, 9, 0]    AG      0.56    18      30.67   [18, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE
- chr21   47739724        A       0       8       37.00   [6, 0, 2, 0]    AG      0.25    30      30.10   [30, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE
- chr21   47739725        A       0       8       37.75   [5, 0, 3, 0]    AG      0.38    30      29.93   [30, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE
- chr21   47739764        A       0       6       37.33   [4, 0, 2, 0]    AG      0.33    19      30.37   [19, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE
- chr21   47740295        A       0       10      34.00   [6, 0, 4, 0]    AG      0.40    30      29.77   [30, 0, 0, 0]   -       0.00    SINE    AluSz   Alu-SINE
- chr21   47741150        A       0       28      36.57   [25, 0, 3, 0]   AG      0.11    24      31.54   [24, 0, 0, 0]   -       0.00    SINE    AluSx4  Alu-SINE
- chr21   47741221        A       0       49      36.33   [44, 0, 5, 0]   AG      0.10    40      29.50   [40, 0, 0, 0]   -       0.00    SINE    AluSx4  Alu-SINE
+
+ Region  Position        Reference       Strand  Coverage-q25    MeanQ   BaseCount[A,C,G,T]      AllSubs Frequency       gCoverage-q25   gMeanQ  gBaseCount[A,C,G,T]  gAllSubs        gFrequency      RepMask_feat    RepMask_gid     RepMask_tid<br>
+ chr21   47739131        A       0       20      34.60   [18, 0, 2, 0]   AG      0.10    30      30.40   [30, 0, 0, 0]   -       0.00    -       -       -<br>
+ chr21   47739578        A       0       14      38.50   [11, 0, 3, 0]   AG      0.21    26      30.27   [26, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE<br>
+ chr21   47739644        A       0       18      36.61   [13, 0, 5, 0]   AG      0.28    23      30.22   [23, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE<br>
+ chr21   47739647        A       0       16      36.12   [7, 0, 9, 0]    AG      0.56    18      30.67   [18, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE<br>
+ chr21   47739724        A       0       8       37.00   [6, 0, 2, 0]    AG      0.25    30      30.10   [30, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE<br>
+ chr21   47739725        A       0       8       37.75   [5, 0, 3, 0]    AG      0.38    30      29.93   [30, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE<br>
+ chr21   47739764        A       0       6       37.33   [4, 0, 2, 0]    AG      0.33    19      30.37   [19, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE<br>
+ chr21   47740295        A       0       10      34.00   [6, 0, 4, 0]    AG      0.40    30      29.77   [30, 0, 0, 0]   -       0.00    SINE    AluSz   Alu-SINE<br>
+ chr21   47741150        A       0       28      36.57   [25, 0, 3, 0]   AG      0.11    24      31.54   [24, 0, 0, 0]   -       0.00    SINE    AluSx4  Alu-SINE<br>
+ chr21   47741221        A       0       49      36.33   [44, 0, 5, 0]   AG      0.10    40      29.50   [40, 0, 0, 0]   -       0.00    SINE    AluSx4  Alu-SINE<br>
 
 To remove positions not annotated in SINE regions we use the FilterTable.py script:
 ```bash
@@ -832,17 +842,19 @@ Finally we can add gene annotations using RefSeq database:
  Table saved on candidates.rmsk.alu.ann.txt
  Script time --> END: 06/02/2013 20:52:48
 ```
+
  more candidates.rmsk.alu.ann.txt
- Region  Position        Reference       Strand  Coverage-q25    MeanQ   BaseCount[A,C,G,T]      AllSubs Frequency       gCoverage-q25   gMeanQ  gBaseCount[A,C,G,T]  gAllSubs        gFrequency      RepMask_feat    RepMask_gid     RepMask_tid     RefSeq_feat     RefSeq_gid
- chr21   47739578        A       0       14      38.50   [11, 0, 3, 0]   AG      0.21    26      30.27   [26, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE     intron  C21orf58
- chr21   47739644        A       0       18      36.61   [13, 0, 5, 0]   AG      0.28    23      30.22   [23, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE     intron  C21orf58
- chr21   47739647        A       0       16      36.12   [7, 0, 9, 0]    AG      0.56    18      30.67   [18, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE     intron  C21orf58
- chr21   47739724        A       0       8       37.00   [6, 0, 2, 0]    AG      0.25    30      30.10   [30, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE     intron  C21orf58
- chr21   47739725        A       0       8       37.75   [5, 0, 3, 0]    AG      0.38    30      29.93   [30, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE     intron  C21orf58
- chr21   47739764        A       0       6       37.33   [4, 0, 2, 0]    AG      0.33    19      30.37   [19, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE     intron  C21orf58
- chr21   47740295        A       0       10      34.00   [6, 0, 4, 0]    AG      0.40    30      29.77   [30, 0, 0, 0]   -       0.00    SINE    AluSz   Alu-SINE     intron  C21orf58
- chr21   47741150        A       0       28      36.57   [25, 0, 3, 0]   AG      0.11    24      31.54   [24, 0, 0, 0]   -       0.00    SINE    AluSx4  Alu-SINE     intron  C21orf58
- chr21   47741221        A       0       49      36.33   [44, 0, 5, 0]   AG      0.10    40      29.50   [40, 0, 0, 0]   -       0.00    SINE    AluSx4  Alu-SINE     intron  C21orf58
+
+ Region  Position        Reference       Strand  Coverage-q25    MeanQ   BaseCount[A,C,G,T]      AllSubs Frequency       gCoverage-q25   gMeanQ  gBaseCount[A,C,G,T]  gAllSubs        gFrequency      RepMask_feat    RepMask_gid     RepMask_tid     RefSeq_feat     RefSeq_gid<br>
+ chr21   47739578        A       0       14      38.50   [11, 0, 3, 0]   AG      0.21    26      30.27   [26, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE     intron  C21orf58<br>
+ chr21   47739644        A       0       18      36.61   [13, 0, 5, 0]   AG      0.28    23      30.22   [23, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE     intron  C21orf58<br>
+ chr21   47739647        A       0       16      36.12   [7, 0, 9, 0]    AG      0.56    18      30.67   [18, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE     intron  C21orf58<br>
+ chr21   47739724        A       0       8       37.00   [6, 0, 2, 0]    AG      0.25    30      30.10   [30, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE     intron  C21orf58<br>
+ chr21   47739725        A       0       8       37.75   [5, 0, 3, 0]    AG      0.38    30      29.93   [30, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE     intron  C21orf58<br>
+ chr21   47739764        A       0       6       37.33   [4, 0, 2, 0]    AG      0.33    19      30.37   [19, 0, 0, 0]   -       0.00    SINE    AluSq4  Alu-SINE     intron  C21orf58<br>
+ chr21   47740295        A       0       10      34.00   [6, 0, 4, 0]    AG      0.40    30      29.77   [30, 0, 0, 0]   -       0.00    SINE    AluSz   Alu-SINE     intron  C21orf58<br>
+ chr21   47741150        A       0       28      36.57   [25, 0, 3, 0]   AG      0.11    24      31.54   [24, 0, 0, 0]   -       0.00    SINE    AluSx4  Alu-SINE     intron  C21orf58<br>
+ chr21   47741221        A       0       49      36.33   [44, 0, 5, 0]   AG      0.10    40      29.50   [40, 0, 0, 0]   -       0.00    SINE    AluSx4  Alu-SINE     intron  C21orf58<br>
 
 ## Contact
 * Ernesto Picardi: ernesto.picardi at gmail dot com
